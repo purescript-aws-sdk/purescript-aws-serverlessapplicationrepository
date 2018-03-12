@@ -39,57 +39,75 @@ import Data.StrMap as StrMap
 import AWS.Request as Request
 import AWS.Request.Types as Types
 
-serviceName = "ServerlessApplicationRepository" :: String
-
 
 -- | <p>Creates an application, optionally including an AWS SAM file to create the first application version in the same call.</p>
 createApplication :: forall eff. CreateApplicationRequest -> Aff (exception :: EXCEPTION | eff) CreateApplicationResponse
-createApplication = Request.request serviceName "createApplication" 
+createApplication = Request.request service method  where
+    service = Request.ServiceName "ServerlessApplicationRepository"
+    method = Request.MethodName "createApplication"
 
 
 -- | <p>Creates an application version.</p>
 createApplicationVersion :: forall eff. CreateApplicationVersionRequest -> Aff (exception :: EXCEPTION | eff) CreateApplicationVersionResponse
-createApplicationVersion = Request.request serviceName "createApplicationVersion" 
+createApplicationVersion = Request.request service method  where
+    service = Request.ServiceName "ServerlessApplicationRepository"
+    method = Request.MethodName "createApplicationVersion"
 
 
 -- | <p>Creates an AWS CloudFormation ChangeSet for the given application.</p>
 createCloudFormationChangeSet :: forall eff. CreateCloudFormationChangeSetRequest -> Aff (exception :: EXCEPTION | eff) CreateCloudFormationChangeSetResponse
-createCloudFormationChangeSet = Request.request serviceName "createCloudFormationChangeSet" 
+createCloudFormationChangeSet = Request.request service method  where
+    service = Request.ServiceName "ServerlessApplicationRepository"
+    method = Request.MethodName "createCloudFormationChangeSet"
 
 
 -- | <p>Deletes the specified application.</p>
 deleteApplication :: forall eff. DeleteApplicationRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
-deleteApplication = Request.request serviceName "deleteApplication" 
+deleteApplication = Request.request service method  where
+    service = Request.ServiceName "ServerlessApplicationRepository"
+    method = Request.MethodName "deleteApplication"
 
 
 -- | <p>Gets the specified application.</p>
 getApplication :: forall eff. GetApplicationRequest -> Aff (exception :: EXCEPTION | eff) GetApplicationResponse
-getApplication = Request.request serviceName "getApplication" 
+getApplication = Request.request service method  where
+    service = Request.ServiceName "ServerlessApplicationRepository"
+    method = Request.MethodName "getApplication"
 
 
 -- | <p>Gets the policy for the specified application.</p>
 getApplicationPolicy :: forall eff. GetApplicationPolicyRequest -> Aff (exception :: EXCEPTION | eff) GetApplicationPolicyResponse
-getApplicationPolicy = Request.request serviceName "getApplicationPolicy" 
+getApplicationPolicy = Request.request service method  where
+    service = Request.ServiceName "ServerlessApplicationRepository"
+    method = Request.MethodName "getApplicationPolicy"
 
 
 -- | <p>Lists versions for the specified application.</p>
 listApplicationVersions :: forall eff. ListApplicationVersionsRequest -> Aff (exception :: EXCEPTION | eff) ListApplicationVersionsResponse
-listApplicationVersions = Request.request serviceName "listApplicationVersions" 
+listApplicationVersions = Request.request service method  where
+    service = Request.ServiceName "ServerlessApplicationRepository"
+    method = Request.MethodName "listApplicationVersions"
 
 
 -- | <p>Lists applications owned by the requester.</p>
 listApplications :: forall eff. ListApplicationsRequest -> Aff (exception :: EXCEPTION | eff) ListApplicationsResponse
-listApplications = Request.request serviceName "listApplications" 
+listApplications = Request.request service method  where
+    service = Request.ServiceName "ServerlessApplicationRepository"
+    method = Request.MethodName "listApplications"
 
 
 -- | <p>Puts the policy for the specified application.</p>
 putApplicationPolicy :: forall eff. PutApplicationPolicyRequest -> Aff (exception :: EXCEPTION | eff) PutApplicationPolicyResponse
-putApplicationPolicy = Request.request serviceName "putApplicationPolicy" 
+putApplicationPolicy = Request.request service method  where
+    service = Request.ServiceName "ServerlessApplicationRepository"
+    method = Request.MethodName "putApplicationPolicy"
 
 
 -- | <p>Updates the specified application.</p>
 updateApplication :: forall eff. UpdateApplicationRequest -> Aff (exception :: EXCEPTION | eff) UpdateApplicationResponse
-updateApplication = Request.request serviceName "updateApplication" 
+updateApplication = Request.request service method  where
+    service = Request.ServiceName "ServerlessApplicationRepository"
+    method = Request.MethodName "updateApplication"
 
 
 -- | <p>Details about the application.</p>
