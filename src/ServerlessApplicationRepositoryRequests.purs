@@ -31,7 +31,7 @@ createCloudFormationChangeSet (ServerlessApplicationRepository.Service serviceIm
 
 
 -- | <p>Deletes the specified application.</p>
-deleteApplication :: forall eff. ServerlessApplicationRepository.Service -> ServerlessApplicationRepositoryTypes.DeleteApplicationRequest -> Aff (exception :: EXCEPTION | eff) Types.NoOutput
+deleteApplication :: forall eff. ServerlessApplicationRepository.Service -> ServerlessApplicationRepositoryTypes.DeleteApplicationRequest -> Aff (exception :: EXCEPTION | eff) Unit
 deleteApplication (ServerlessApplicationRepository.Service serviceImpl) = AWS.request serviceImpl method  where
     method = AWS.MethodName "deleteApplication"
 

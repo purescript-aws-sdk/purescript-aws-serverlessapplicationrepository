@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -22,15 +21,15 @@ options = defaultOptions { unwrapSingleConstructors = true }
 newtype Application = Application 
   { "ApplicationId" :: (String)
   , "Author" :: (String)
-  , "CreationTime" :: NullOrUndefined (String)
+  , "CreationTime" :: Maybe (String)
   , "Description" :: (String)
-  , "HomePageUrl" :: NullOrUndefined (String)
-  , "Labels" :: NullOrUndefined (ListOf__string')
-  , "LicenseUrl" :: NullOrUndefined (String)
+  , "HomePageUrl" :: Maybe (String)
+  , "Labels" :: Maybe (ListOf__string')
+  , "LicenseUrl" :: Maybe (String)
   , "Name" :: (String)
-  , "ReadmeUrl" :: NullOrUndefined (String)
-  , "SpdxLicenseId" :: NullOrUndefined (String)
-  , "Version" :: NullOrUndefined (Version)
+  , "ReadmeUrl" :: Maybe (String)
+  , "SpdxLicenseId" :: Maybe (String)
+  , "Version" :: Maybe (Version)
   }
 derive instance newtypeApplication :: Newtype Application _
 derive instance repGenericApplication :: Generic Application _
@@ -40,19 +39,19 @@ instance encodeApplication :: Encode Application where encode = genericEncode op
 
 -- | Constructs Application from required parameters
 newApplication :: String -> String -> String -> String -> Application
-newApplication _ApplicationId _Author _Description _Name = Application { "ApplicationId": _ApplicationId, "Author": _Author, "Description": _Description, "Name": _Name, "CreationTime": (NullOrUndefined Nothing), "HomePageUrl": (NullOrUndefined Nothing), "Labels": (NullOrUndefined Nothing), "LicenseUrl": (NullOrUndefined Nothing), "ReadmeUrl": (NullOrUndefined Nothing), "SpdxLicenseId": (NullOrUndefined Nothing), "Version": (NullOrUndefined Nothing) }
+newApplication _ApplicationId _Author _Description _Name = Application { "ApplicationId": _ApplicationId, "Author": _Author, "Description": _Description, "Name": _Name, "CreationTime": Nothing, "HomePageUrl": Nothing, "Labels": Nothing, "LicenseUrl": Nothing, "ReadmeUrl": Nothing, "SpdxLicenseId": Nothing, "Version": Nothing }
 
 -- | Constructs Application's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newApplication' :: String -> String -> String -> String -> ( { "ApplicationId" :: (String) , "Author" :: (String) , "CreationTime" :: NullOrUndefined (String) , "Description" :: (String) , "HomePageUrl" :: NullOrUndefined (String) , "Labels" :: NullOrUndefined (ListOf__string') , "LicenseUrl" :: NullOrUndefined (String) , "Name" :: (String) , "ReadmeUrl" :: NullOrUndefined (String) , "SpdxLicenseId" :: NullOrUndefined (String) , "Version" :: NullOrUndefined (Version) } -> {"ApplicationId" :: (String) , "Author" :: (String) , "CreationTime" :: NullOrUndefined (String) , "Description" :: (String) , "HomePageUrl" :: NullOrUndefined (String) , "Labels" :: NullOrUndefined (ListOf__string') , "LicenseUrl" :: NullOrUndefined (String) , "Name" :: (String) , "ReadmeUrl" :: NullOrUndefined (String) , "SpdxLicenseId" :: NullOrUndefined (String) , "Version" :: NullOrUndefined (Version) } ) -> Application
-newApplication' _ApplicationId _Author _Description _Name customize = (Application <<< customize) { "ApplicationId": _ApplicationId, "Author": _Author, "Description": _Description, "Name": _Name, "CreationTime": (NullOrUndefined Nothing), "HomePageUrl": (NullOrUndefined Nothing), "Labels": (NullOrUndefined Nothing), "LicenseUrl": (NullOrUndefined Nothing), "ReadmeUrl": (NullOrUndefined Nothing), "SpdxLicenseId": (NullOrUndefined Nothing), "Version": (NullOrUndefined Nothing) }
+newApplication' :: String -> String -> String -> String -> ( { "ApplicationId" :: (String) , "Author" :: (String) , "CreationTime" :: Maybe (String) , "Description" :: (String) , "HomePageUrl" :: Maybe (String) , "Labels" :: Maybe (ListOf__string') , "LicenseUrl" :: Maybe (String) , "Name" :: (String) , "ReadmeUrl" :: Maybe (String) , "SpdxLicenseId" :: Maybe (String) , "Version" :: Maybe (Version) } -> {"ApplicationId" :: (String) , "Author" :: (String) , "CreationTime" :: Maybe (String) , "Description" :: (String) , "HomePageUrl" :: Maybe (String) , "Labels" :: Maybe (ListOf__string') , "LicenseUrl" :: Maybe (String) , "Name" :: (String) , "ReadmeUrl" :: Maybe (String) , "SpdxLicenseId" :: Maybe (String) , "Version" :: Maybe (Version) } ) -> Application
+newApplication' _ApplicationId _Author _Description _Name customize = (Application <<< customize) { "ApplicationId": _ApplicationId, "Author": _Author, "Description": _Description, "Name": _Name, "CreationTime": Nothing, "HomePageUrl": Nothing, "Labels": Nothing, "LicenseUrl": Nothing, "ReadmeUrl": Nothing, "SpdxLicenseId": Nothing, "Version": Nothing }
 
 
 
 -- | <p>List of application details.</p>
 newtype ApplicationPage = ApplicationPage 
   { "Applications" :: (ListOfApplicationSummary')
-  , "NextToken" :: NullOrUndefined (String)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeApplicationPage :: Newtype ApplicationPage _
 derive instance repGenericApplicationPage :: Generic ApplicationPage _
@@ -62,12 +61,12 @@ instance encodeApplicationPage :: Encode ApplicationPage where encode = genericE
 
 -- | Constructs ApplicationPage from required parameters
 newApplicationPage :: ListOfApplicationSummary' -> ApplicationPage
-newApplicationPage _Applications = ApplicationPage { "Applications": _Applications, "NextToken": (NullOrUndefined Nothing) }
+newApplicationPage _Applications = ApplicationPage { "Applications": _Applications, "NextToken": Nothing }
 
 -- | Constructs ApplicationPage's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newApplicationPage' :: ListOfApplicationSummary' -> ( { "Applications" :: (ListOfApplicationSummary') , "NextToken" :: NullOrUndefined (String) } -> {"Applications" :: (ListOfApplicationSummary') , "NextToken" :: NullOrUndefined (String) } ) -> ApplicationPage
-newApplicationPage' _Applications customize = (ApplicationPage <<< customize) { "Applications": _Applications, "NextToken": (NullOrUndefined Nothing) }
+newApplicationPage' :: ListOfApplicationSummary' -> ( { "Applications" :: (ListOfApplicationSummary') , "NextToken" :: Maybe (String) } -> {"Applications" :: (ListOfApplicationSummary') , "NextToken" :: Maybe (String) } ) -> ApplicationPage
+newApplicationPage' _Applications customize = (ApplicationPage <<< customize) { "Applications": _Applications, "NextToken": Nothing }
 
 
 
@@ -96,7 +95,7 @@ newApplicationPolicy' _Statements customize = (ApplicationPolicy <<< customize) 
 newtype ApplicationPolicyStatement = ApplicationPolicyStatement 
   { "Actions" :: (ListOf__string')
   , "Principals" :: (ListOf__string')
-  , "StatementId" :: NullOrUndefined (String)
+  , "StatementId" :: Maybe (String)
   }
 derive instance newtypeApplicationPolicyStatement :: Newtype ApplicationPolicyStatement _
 derive instance repGenericApplicationPolicyStatement :: Generic ApplicationPolicyStatement _
@@ -106,12 +105,12 @@ instance encodeApplicationPolicyStatement :: Encode ApplicationPolicyStatement w
 
 -- | Constructs ApplicationPolicyStatement from required parameters
 newApplicationPolicyStatement :: ListOf__string' -> ListOf__string' -> ApplicationPolicyStatement
-newApplicationPolicyStatement _Actions _Principals = ApplicationPolicyStatement { "Actions": _Actions, "Principals": _Principals, "StatementId": (NullOrUndefined Nothing) }
+newApplicationPolicyStatement _Actions _Principals = ApplicationPolicyStatement { "Actions": _Actions, "Principals": _Principals, "StatementId": Nothing }
 
 -- | Constructs ApplicationPolicyStatement's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newApplicationPolicyStatement' :: ListOf__string' -> ListOf__string' -> ( { "Actions" :: (ListOf__string') , "Principals" :: (ListOf__string') , "StatementId" :: NullOrUndefined (String) } -> {"Actions" :: (ListOf__string') , "Principals" :: (ListOf__string') , "StatementId" :: NullOrUndefined (String) } ) -> ApplicationPolicyStatement
-newApplicationPolicyStatement' _Actions _Principals customize = (ApplicationPolicyStatement <<< customize) { "Actions": _Actions, "Principals": _Principals, "StatementId": (NullOrUndefined Nothing) }
+newApplicationPolicyStatement' :: ListOf__string' -> ListOf__string' -> ( { "Actions" :: (ListOf__string') , "Principals" :: (ListOf__string') , "StatementId" :: Maybe (String) } -> {"Actions" :: (ListOf__string') , "Principals" :: (ListOf__string') , "StatementId" :: Maybe (String) } ) -> ApplicationPolicyStatement
+newApplicationPolicyStatement' _Actions _Principals customize = (ApplicationPolicyStatement <<< customize) { "Actions": _Actions, "Principals": _Principals, "StatementId": Nothing }
 
 
 
@@ -119,12 +118,12 @@ newApplicationPolicyStatement' _Actions _Principals customize = (ApplicationPoli
 newtype ApplicationSummary = ApplicationSummary 
   { "ApplicationId" :: (String)
   , "Author" :: (String)
-  , "CreationTime" :: NullOrUndefined (String)
+  , "CreationTime" :: Maybe (String)
   , "Description" :: (String)
-  , "HomePageUrl" :: NullOrUndefined (String)
-  , "Labels" :: NullOrUndefined (ListOf__string')
+  , "HomePageUrl" :: Maybe (String)
+  , "Labels" :: Maybe (ListOf__string')
   , "Name" :: (String)
-  , "SpdxLicenseId" :: NullOrUndefined (String)
+  , "SpdxLicenseId" :: Maybe (String)
   }
 derive instance newtypeApplicationSummary :: Newtype ApplicationSummary _
 derive instance repGenericApplicationSummary :: Generic ApplicationSummary _
@@ -134,18 +133,18 @@ instance encodeApplicationSummary :: Encode ApplicationSummary where encode = ge
 
 -- | Constructs ApplicationSummary from required parameters
 newApplicationSummary :: String -> String -> String -> String -> ApplicationSummary
-newApplicationSummary _ApplicationId _Author _Description _Name = ApplicationSummary { "ApplicationId": _ApplicationId, "Author": _Author, "Description": _Description, "Name": _Name, "CreationTime": (NullOrUndefined Nothing), "HomePageUrl": (NullOrUndefined Nothing), "Labels": (NullOrUndefined Nothing), "SpdxLicenseId": (NullOrUndefined Nothing) }
+newApplicationSummary _ApplicationId _Author _Description _Name = ApplicationSummary { "ApplicationId": _ApplicationId, "Author": _Author, "Description": _Description, "Name": _Name, "CreationTime": Nothing, "HomePageUrl": Nothing, "Labels": Nothing, "SpdxLicenseId": Nothing }
 
 -- | Constructs ApplicationSummary's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newApplicationSummary' :: String -> String -> String -> String -> ( { "ApplicationId" :: (String) , "Author" :: (String) , "CreationTime" :: NullOrUndefined (String) , "Description" :: (String) , "HomePageUrl" :: NullOrUndefined (String) , "Labels" :: NullOrUndefined (ListOf__string') , "Name" :: (String) , "SpdxLicenseId" :: NullOrUndefined (String) } -> {"ApplicationId" :: (String) , "Author" :: (String) , "CreationTime" :: NullOrUndefined (String) , "Description" :: (String) , "HomePageUrl" :: NullOrUndefined (String) , "Labels" :: NullOrUndefined (ListOf__string') , "Name" :: (String) , "SpdxLicenseId" :: NullOrUndefined (String) } ) -> ApplicationSummary
-newApplicationSummary' _ApplicationId _Author _Description _Name customize = (ApplicationSummary <<< customize) { "ApplicationId": _ApplicationId, "Author": _Author, "Description": _Description, "Name": _Name, "CreationTime": (NullOrUndefined Nothing), "HomePageUrl": (NullOrUndefined Nothing), "Labels": (NullOrUndefined Nothing), "SpdxLicenseId": (NullOrUndefined Nothing) }
+newApplicationSummary' :: String -> String -> String -> String -> ( { "ApplicationId" :: (String) , "Author" :: (String) , "CreationTime" :: Maybe (String) , "Description" :: (String) , "HomePageUrl" :: Maybe (String) , "Labels" :: Maybe (ListOf__string') , "Name" :: (String) , "SpdxLicenseId" :: Maybe (String) } -> {"ApplicationId" :: (String) , "Author" :: (String) , "CreationTime" :: Maybe (String) , "Description" :: (String) , "HomePageUrl" :: Maybe (String) , "Labels" :: Maybe (ListOf__string') , "Name" :: (String) , "SpdxLicenseId" :: Maybe (String) } ) -> ApplicationSummary
+newApplicationSummary' _ApplicationId _Author _Description _Name customize = (ApplicationSummary <<< customize) { "ApplicationId": _ApplicationId, "Author": _Author, "Description": _Description, "Name": _Name, "CreationTime": Nothing, "HomePageUrl": Nothing, "Labels": Nothing, "SpdxLicenseId": Nothing }
 
 
 
 -- | <p>List of version summaries for the application.</p>
 newtype ApplicationVersionPage = ApplicationVersionPage 
-  { "NextToken" :: NullOrUndefined (String)
+  { "NextToken" :: Maybe (String)
   , "Versions" :: (ListOfVersionSummary')
   }
 derive instance newtypeApplicationVersionPage :: Newtype ApplicationVersionPage _
@@ -156,19 +155,19 @@ instance encodeApplicationVersionPage :: Encode ApplicationVersionPage where enc
 
 -- | Constructs ApplicationVersionPage from required parameters
 newApplicationVersionPage :: ListOfVersionSummary' -> ApplicationVersionPage
-newApplicationVersionPage _Versions = ApplicationVersionPage { "Versions": _Versions, "NextToken": (NullOrUndefined Nothing) }
+newApplicationVersionPage _Versions = ApplicationVersionPage { "Versions": _Versions, "NextToken": Nothing }
 
 -- | Constructs ApplicationVersionPage's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newApplicationVersionPage' :: ListOfVersionSummary' -> ( { "NextToken" :: NullOrUndefined (String) , "Versions" :: (ListOfVersionSummary') } -> {"NextToken" :: NullOrUndefined (String) , "Versions" :: (ListOfVersionSummary') } ) -> ApplicationVersionPage
-newApplicationVersionPage' _Versions customize = (ApplicationVersionPage <<< customize) { "Versions": _Versions, "NextToken": (NullOrUndefined Nothing) }
+newApplicationVersionPage' :: ListOfVersionSummary' -> ( { "NextToken" :: Maybe (String) , "Versions" :: (ListOfVersionSummary') } -> {"NextToken" :: Maybe (String) , "Versions" :: (ListOfVersionSummary') } ) -> ApplicationVersionPage
+newApplicationVersionPage' _Versions customize = (ApplicationVersionPage <<< customize) { "Versions": _Versions, "NextToken": Nothing }
 
 
 
 -- | <p>One of the parameters in the request is invalid.</p>
 newtype BadRequestException = BadRequestException 
-  { "ErrorCode" :: NullOrUndefined (String)
-  , "Message" :: NullOrUndefined (String)
+  { "ErrorCode" :: Maybe (String)
+  , "Message" :: Maybe (String)
   }
 derive instance newtypeBadRequestException :: Newtype BadRequestException _
 derive instance repGenericBadRequestException :: Generic BadRequestException _
@@ -178,12 +177,12 @@ instance encodeBadRequestException :: Encode BadRequestException where encode = 
 
 -- | Constructs BadRequestException from required parameters
 newBadRequestException :: BadRequestException
-newBadRequestException  = BadRequestException { "ErrorCode": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing) }
+newBadRequestException  = BadRequestException { "ErrorCode": Nothing, "Message": Nothing }
 
 -- | Constructs BadRequestException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBadRequestException' :: ( { "ErrorCode" :: NullOrUndefined (String) , "Message" :: NullOrUndefined (String) } -> {"ErrorCode" :: NullOrUndefined (String) , "Message" :: NullOrUndefined (String) } ) -> BadRequestException
-newBadRequestException'  customize = (BadRequestException <<< customize) { "ErrorCode": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing) }
+newBadRequestException' :: ( { "ErrorCode" :: Maybe (String) , "Message" :: Maybe (String) } -> {"ErrorCode" :: Maybe (String) , "Message" :: Maybe (String) } ) -> BadRequestException
+newBadRequestException'  customize = (BadRequestException <<< customize) { "ErrorCode": Nothing, "Message": Nothing }
 
 
 
@@ -213,8 +212,8 @@ newChangeSetDetails' _ApplicationId _ChangeSetId _SemanticVersion _StackId custo
 
 -- | <p>The resource already exists.</p>
 newtype ConflictException = ConflictException 
-  { "ErrorCode" :: NullOrUndefined (String)
-  , "Message" :: NullOrUndefined (String)
+  { "ErrorCode" :: Maybe (String)
+  , "Message" :: Maybe (String)
   }
 derive instance newtypeConflictException :: Newtype ConflictException _
 derive instance repGenericConflictException :: Generic ConflictException _
@@ -224,12 +223,12 @@ instance encodeConflictException :: Encode ConflictException where encode = gene
 
 -- | Constructs ConflictException from required parameters
 newConflictException :: ConflictException
-newConflictException  = ConflictException { "ErrorCode": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing) }
+newConflictException  = ConflictException { "ErrorCode": Nothing, "Message": Nothing }
 
 -- | Constructs ConflictException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newConflictException' :: ( { "ErrorCode" :: NullOrUndefined (String) , "Message" :: NullOrUndefined (String) } -> {"ErrorCode" :: NullOrUndefined (String) , "Message" :: NullOrUndefined (String) } ) -> ConflictException
-newConflictException'  customize = (ConflictException <<< customize) { "ErrorCode": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing) }
+newConflictException' :: ( { "ErrorCode" :: Maybe (String) , "Message" :: Maybe (String) } -> {"ErrorCode" :: Maybe (String) , "Message" :: Maybe (String) } ) -> ConflictException
+newConflictException'  customize = (ConflictException <<< customize) { "ErrorCode": Nothing, "Message": Nothing }
 
 
 
@@ -237,18 +236,18 @@ newConflictException'  customize = (ConflictException <<< customize) { "ErrorCod
 newtype CreateApplicationInput = CreateApplicationInput 
   { "Author" :: (String)
   , "Description" :: (String)
-  , "HomePageUrl" :: NullOrUndefined (String)
-  , "Labels" :: NullOrUndefined (ListOf__string')
-  , "LicenseBody" :: NullOrUndefined (String)
-  , "LicenseUrl" :: NullOrUndefined (String)
+  , "HomePageUrl" :: Maybe (String)
+  , "Labels" :: Maybe (ListOf__string')
+  , "LicenseBody" :: Maybe (String)
+  , "LicenseUrl" :: Maybe (String)
   , "Name" :: (String)
-  , "ReadmeBody" :: NullOrUndefined (String)
-  , "ReadmeUrl" :: NullOrUndefined (String)
-  , "SemanticVersion" :: NullOrUndefined (String)
-  , "SourceCodeUrl" :: NullOrUndefined (String)
-  , "SpdxLicenseId" :: NullOrUndefined (String)
-  , "TemplateBody" :: NullOrUndefined (String)
-  , "TemplateUrl" :: NullOrUndefined (String)
+  , "ReadmeBody" :: Maybe (String)
+  , "ReadmeUrl" :: Maybe (String)
+  , "SemanticVersion" :: Maybe (String)
+  , "SourceCodeUrl" :: Maybe (String)
+  , "SpdxLicenseId" :: Maybe (String)
+  , "TemplateBody" :: Maybe (String)
+  , "TemplateUrl" :: Maybe (String)
   }
 derive instance newtypeCreateApplicationInput :: Newtype CreateApplicationInput _
 derive instance repGenericCreateApplicationInput :: Generic CreateApplicationInput _
@@ -258,30 +257,30 @@ instance encodeCreateApplicationInput :: Encode CreateApplicationInput where enc
 
 -- | Constructs CreateApplicationInput from required parameters
 newCreateApplicationInput :: String -> String -> String -> CreateApplicationInput
-newCreateApplicationInput _Author _Description _Name = CreateApplicationInput { "Author": _Author, "Description": _Description, "Name": _Name, "HomePageUrl": (NullOrUndefined Nothing), "Labels": (NullOrUndefined Nothing), "LicenseBody": (NullOrUndefined Nothing), "LicenseUrl": (NullOrUndefined Nothing), "ReadmeBody": (NullOrUndefined Nothing), "ReadmeUrl": (NullOrUndefined Nothing), "SemanticVersion": (NullOrUndefined Nothing), "SourceCodeUrl": (NullOrUndefined Nothing), "SpdxLicenseId": (NullOrUndefined Nothing), "TemplateBody": (NullOrUndefined Nothing), "TemplateUrl": (NullOrUndefined Nothing) }
+newCreateApplicationInput _Author _Description _Name = CreateApplicationInput { "Author": _Author, "Description": _Description, "Name": _Name, "HomePageUrl": Nothing, "Labels": Nothing, "LicenseBody": Nothing, "LicenseUrl": Nothing, "ReadmeBody": Nothing, "ReadmeUrl": Nothing, "SemanticVersion": Nothing, "SourceCodeUrl": Nothing, "SpdxLicenseId": Nothing, "TemplateBody": Nothing, "TemplateUrl": Nothing }
 
 -- | Constructs CreateApplicationInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateApplicationInput' :: String -> String -> String -> ( { "Author" :: (String) , "Description" :: (String) , "HomePageUrl" :: NullOrUndefined (String) , "Labels" :: NullOrUndefined (ListOf__string') , "LicenseBody" :: NullOrUndefined (String) , "LicenseUrl" :: NullOrUndefined (String) , "Name" :: (String) , "ReadmeBody" :: NullOrUndefined (String) , "ReadmeUrl" :: NullOrUndefined (String) , "SemanticVersion" :: NullOrUndefined (String) , "SourceCodeUrl" :: NullOrUndefined (String) , "SpdxLicenseId" :: NullOrUndefined (String) , "TemplateBody" :: NullOrUndefined (String) , "TemplateUrl" :: NullOrUndefined (String) } -> {"Author" :: (String) , "Description" :: (String) , "HomePageUrl" :: NullOrUndefined (String) , "Labels" :: NullOrUndefined (ListOf__string') , "LicenseBody" :: NullOrUndefined (String) , "LicenseUrl" :: NullOrUndefined (String) , "Name" :: (String) , "ReadmeBody" :: NullOrUndefined (String) , "ReadmeUrl" :: NullOrUndefined (String) , "SemanticVersion" :: NullOrUndefined (String) , "SourceCodeUrl" :: NullOrUndefined (String) , "SpdxLicenseId" :: NullOrUndefined (String) , "TemplateBody" :: NullOrUndefined (String) , "TemplateUrl" :: NullOrUndefined (String) } ) -> CreateApplicationInput
-newCreateApplicationInput' _Author _Description _Name customize = (CreateApplicationInput <<< customize) { "Author": _Author, "Description": _Description, "Name": _Name, "HomePageUrl": (NullOrUndefined Nothing), "Labels": (NullOrUndefined Nothing), "LicenseBody": (NullOrUndefined Nothing), "LicenseUrl": (NullOrUndefined Nothing), "ReadmeBody": (NullOrUndefined Nothing), "ReadmeUrl": (NullOrUndefined Nothing), "SemanticVersion": (NullOrUndefined Nothing), "SourceCodeUrl": (NullOrUndefined Nothing), "SpdxLicenseId": (NullOrUndefined Nothing), "TemplateBody": (NullOrUndefined Nothing), "TemplateUrl": (NullOrUndefined Nothing) }
+newCreateApplicationInput' :: String -> String -> String -> ( { "Author" :: (String) , "Description" :: (String) , "HomePageUrl" :: Maybe (String) , "Labels" :: Maybe (ListOf__string') , "LicenseBody" :: Maybe (String) , "LicenseUrl" :: Maybe (String) , "Name" :: (String) , "ReadmeBody" :: Maybe (String) , "ReadmeUrl" :: Maybe (String) , "SemanticVersion" :: Maybe (String) , "SourceCodeUrl" :: Maybe (String) , "SpdxLicenseId" :: Maybe (String) , "TemplateBody" :: Maybe (String) , "TemplateUrl" :: Maybe (String) } -> {"Author" :: (String) , "Description" :: (String) , "HomePageUrl" :: Maybe (String) , "Labels" :: Maybe (ListOf__string') , "LicenseBody" :: Maybe (String) , "LicenseUrl" :: Maybe (String) , "Name" :: (String) , "ReadmeBody" :: Maybe (String) , "ReadmeUrl" :: Maybe (String) , "SemanticVersion" :: Maybe (String) , "SourceCodeUrl" :: Maybe (String) , "SpdxLicenseId" :: Maybe (String) , "TemplateBody" :: Maybe (String) , "TemplateUrl" :: Maybe (String) } ) -> CreateApplicationInput
+newCreateApplicationInput' _Author _Description _Name customize = (CreateApplicationInput <<< customize) { "Author": _Author, "Description": _Description, "Name": _Name, "HomePageUrl": Nothing, "Labels": Nothing, "LicenseBody": Nothing, "LicenseUrl": Nothing, "ReadmeBody": Nothing, "ReadmeUrl": Nothing, "SemanticVersion": Nothing, "SourceCodeUrl": Nothing, "SpdxLicenseId": Nothing, "TemplateBody": Nothing, "TemplateUrl": Nothing }
 
 
 
 newtype CreateApplicationRequest = CreateApplicationRequest 
-  { "Author" :: NullOrUndefined (String)
-  , "Description" :: NullOrUndefined (String)
-  , "HomePageUrl" :: NullOrUndefined (String)
-  , "Labels" :: NullOrUndefined (ListOf__string')
-  , "LicenseBody" :: NullOrUndefined (String)
-  , "LicenseUrl" :: NullOrUndefined (String)
-  , "Name" :: NullOrUndefined (String)
-  , "ReadmeBody" :: NullOrUndefined (String)
-  , "ReadmeUrl" :: NullOrUndefined (String)
-  , "SemanticVersion" :: NullOrUndefined (String)
-  , "SourceCodeUrl" :: NullOrUndefined (String)
-  , "SpdxLicenseId" :: NullOrUndefined (String)
-  , "TemplateBody" :: NullOrUndefined (String)
-  , "TemplateUrl" :: NullOrUndefined (String)
+  { "Author" :: Maybe (String)
+  , "Description" :: Maybe (String)
+  , "HomePageUrl" :: Maybe (String)
+  , "Labels" :: Maybe (ListOf__string')
+  , "LicenseBody" :: Maybe (String)
+  , "LicenseUrl" :: Maybe (String)
+  , "Name" :: Maybe (String)
+  , "ReadmeBody" :: Maybe (String)
+  , "ReadmeUrl" :: Maybe (String)
+  , "SemanticVersion" :: Maybe (String)
+  , "SourceCodeUrl" :: Maybe (String)
+  , "SpdxLicenseId" :: Maybe (String)
+  , "TemplateBody" :: Maybe (String)
+  , "TemplateUrl" :: Maybe (String)
   }
 derive instance newtypeCreateApplicationRequest :: Newtype CreateApplicationRequest _
 derive instance repGenericCreateApplicationRequest :: Generic CreateApplicationRequest _
@@ -291,27 +290,27 @@ instance encodeCreateApplicationRequest :: Encode CreateApplicationRequest where
 
 -- | Constructs CreateApplicationRequest from required parameters
 newCreateApplicationRequest :: CreateApplicationRequest
-newCreateApplicationRequest  = CreateApplicationRequest { "Author": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "HomePageUrl": (NullOrUndefined Nothing), "Labels": (NullOrUndefined Nothing), "LicenseBody": (NullOrUndefined Nothing), "LicenseUrl": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "ReadmeBody": (NullOrUndefined Nothing), "ReadmeUrl": (NullOrUndefined Nothing), "SemanticVersion": (NullOrUndefined Nothing), "SourceCodeUrl": (NullOrUndefined Nothing), "SpdxLicenseId": (NullOrUndefined Nothing), "TemplateBody": (NullOrUndefined Nothing), "TemplateUrl": (NullOrUndefined Nothing) }
+newCreateApplicationRequest  = CreateApplicationRequest { "Author": Nothing, "Description": Nothing, "HomePageUrl": Nothing, "Labels": Nothing, "LicenseBody": Nothing, "LicenseUrl": Nothing, "Name": Nothing, "ReadmeBody": Nothing, "ReadmeUrl": Nothing, "SemanticVersion": Nothing, "SourceCodeUrl": Nothing, "SpdxLicenseId": Nothing, "TemplateBody": Nothing, "TemplateUrl": Nothing }
 
 -- | Constructs CreateApplicationRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateApplicationRequest' :: ( { "Author" :: NullOrUndefined (String) , "Description" :: NullOrUndefined (String) , "HomePageUrl" :: NullOrUndefined (String) , "Labels" :: NullOrUndefined (ListOf__string') , "LicenseBody" :: NullOrUndefined (String) , "LicenseUrl" :: NullOrUndefined (String) , "Name" :: NullOrUndefined (String) , "ReadmeBody" :: NullOrUndefined (String) , "ReadmeUrl" :: NullOrUndefined (String) , "SemanticVersion" :: NullOrUndefined (String) , "SourceCodeUrl" :: NullOrUndefined (String) , "SpdxLicenseId" :: NullOrUndefined (String) , "TemplateBody" :: NullOrUndefined (String) , "TemplateUrl" :: NullOrUndefined (String) } -> {"Author" :: NullOrUndefined (String) , "Description" :: NullOrUndefined (String) , "HomePageUrl" :: NullOrUndefined (String) , "Labels" :: NullOrUndefined (ListOf__string') , "LicenseBody" :: NullOrUndefined (String) , "LicenseUrl" :: NullOrUndefined (String) , "Name" :: NullOrUndefined (String) , "ReadmeBody" :: NullOrUndefined (String) , "ReadmeUrl" :: NullOrUndefined (String) , "SemanticVersion" :: NullOrUndefined (String) , "SourceCodeUrl" :: NullOrUndefined (String) , "SpdxLicenseId" :: NullOrUndefined (String) , "TemplateBody" :: NullOrUndefined (String) , "TemplateUrl" :: NullOrUndefined (String) } ) -> CreateApplicationRequest
-newCreateApplicationRequest'  customize = (CreateApplicationRequest <<< customize) { "Author": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "HomePageUrl": (NullOrUndefined Nothing), "Labels": (NullOrUndefined Nothing), "LicenseBody": (NullOrUndefined Nothing), "LicenseUrl": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "ReadmeBody": (NullOrUndefined Nothing), "ReadmeUrl": (NullOrUndefined Nothing), "SemanticVersion": (NullOrUndefined Nothing), "SourceCodeUrl": (NullOrUndefined Nothing), "SpdxLicenseId": (NullOrUndefined Nothing), "TemplateBody": (NullOrUndefined Nothing), "TemplateUrl": (NullOrUndefined Nothing) }
+newCreateApplicationRequest' :: ( { "Author" :: Maybe (String) , "Description" :: Maybe (String) , "HomePageUrl" :: Maybe (String) , "Labels" :: Maybe (ListOf__string') , "LicenseBody" :: Maybe (String) , "LicenseUrl" :: Maybe (String) , "Name" :: Maybe (String) , "ReadmeBody" :: Maybe (String) , "ReadmeUrl" :: Maybe (String) , "SemanticVersion" :: Maybe (String) , "SourceCodeUrl" :: Maybe (String) , "SpdxLicenseId" :: Maybe (String) , "TemplateBody" :: Maybe (String) , "TemplateUrl" :: Maybe (String) } -> {"Author" :: Maybe (String) , "Description" :: Maybe (String) , "HomePageUrl" :: Maybe (String) , "Labels" :: Maybe (ListOf__string') , "LicenseBody" :: Maybe (String) , "LicenseUrl" :: Maybe (String) , "Name" :: Maybe (String) , "ReadmeBody" :: Maybe (String) , "ReadmeUrl" :: Maybe (String) , "SemanticVersion" :: Maybe (String) , "SourceCodeUrl" :: Maybe (String) , "SpdxLicenseId" :: Maybe (String) , "TemplateBody" :: Maybe (String) , "TemplateUrl" :: Maybe (String) } ) -> CreateApplicationRequest
+newCreateApplicationRequest'  customize = (CreateApplicationRequest <<< customize) { "Author": Nothing, "Description": Nothing, "HomePageUrl": Nothing, "Labels": Nothing, "LicenseBody": Nothing, "LicenseUrl": Nothing, "Name": Nothing, "ReadmeBody": Nothing, "ReadmeUrl": Nothing, "SemanticVersion": Nothing, "SourceCodeUrl": Nothing, "SpdxLicenseId": Nothing, "TemplateBody": Nothing, "TemplateUrl": Nothing }
 
 
 
 newtype CreateApplicationResponse = CreateApplicationResponse 
-  { "ApplicationId" :: NullOrUndefined (String)
-  , "Author" :: NullOrUndefined (String)
-  , "CreationTime" :: NullOrUndefined (String)
-  , "Description" :: NullOrUndefined (String)
-  , "HomePageUrl" :: NullOrUndefined (String)
-  , "Labels" :: NullOrUndefined (ListOf__string')
-  , "LicenseUrl" :: NullOrUndefined (String)
-  , "Name" :: NullOrUndefined (String)
-  , "ReadmeUrl" :: NullOrUndefined (String)
-  , "SpdxLicenseId" :: NullOrUndefined (String)
-  , "Version" :: NullOrUndefined (Version)
+  { "ApplicationId" :: Maybe (String)
+  , "Author" :: Maybe (String)
+  , "CreationTime" :: Maybe (String)
+  , "Description" :: Maybe (String)
+  , "HomePageUrl" :: Maybe (String)
+  , "Labels" :: Maybe (ListOf__string')
+  , "LicenseUrl" :: Maybe (String)
+  , "Name" :: Maybe (String)
+  , "ReadmeUrl" :: Maybe (String)
+  , "SpdxLicenseId" :: Maybe (String)
+  , "Version" :: Maybe (Version)
   }
 derive instance newtypeCreateApplicationResponse :: Newtype CreateApplicationResponse _
 derive instance repGenericCreateApplicationResponse :: Generic CreateApplicationResponse _
@@ -321,20 +320,20 @@ instance encodeCreateApplicationResponse :: Encode CreateApplicationResponse whe
 
 -- | Constructs CreateApplicationResponse from required parameters
 newCreateApplicationResponse :: CreateApplicationResponse
-newCreateApplicationResponse  = CreateApplicationResponse { "ApplicationId": (NullOrUndefined Nothing), "Author": (NullOrUndefined Nothing), "CreationTime": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "HomePageUrl": (NullOrUndefined Nothing), "Labels": (NullOrUndefined Nothing), "LicenseUrl": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "ReadmeUrl": (NullOrUndefined Nothing), "SpdxLicenseId": (NullOrUndefined Nothing), "Version": (NullOrUndefined Nothing) }
+newCreateApplicationResponse  = CreateApplicationResponse { "ApplicationId": Nothing, "Author": Nothing, "CreationTime": Nothing, "Description": Nothing, "HomePageUrl": Nothing, "Labels": Nothing, "LicenseUrl": Nothing, "Name": Nothing, "ReadmeUrl": Nothing, "SpdxLicenseId": Nothing, "Version": Nothing }
 
 -- | Constructs CreateApplicationResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateApplicationResponse' :: ( { "ApplicationId" :: NullOrUndefined (String) , "Author" :: NullOrUndefined (String) , "CreationTime" :: NullOrUndefined (String) , "Description" :: NullOrUndefined (String) , "HomePageUrl" :: NullOrUndefined (String) , "Labels" :: NullOrUndefined (ListOf__string') , "LicenseUrl" :: NullOrUndefined (String) , "Name" :: NullOrUndefined (String) , "ReadmeUrl" :: NullOrUndefined (String) , "SpdxLicenseId" :: NullOrUndefined (String) , "Version" :: NullOrUndefined (Version) } -> {"ApplicationId" :: NullOrUndefined (String) , "Author" :: NullOrUndefined (String) , "CreationTime" :: NullOrUndefined (String) , "Description" :: NullOrUndefined (String) , "HomePageUrl" :: NullOrUndefined (String) , "Labels" :: NullOrUndefined (ListOf__string') , "LicenseUrl" :: NullOrUndefined (String) , "Name" :: NullOrUndefined (String) , "ReadmeUrl" :: NullOrUndefined (String) , "SpdxLicenseId" :: NullOrUndefined (String) , "Version" :: NullOrUndefined (Version) } ) -> CreateApplicationResponse
-newCreateApplicationResponse'  customize = (CreateApplicationResponse <<< customize) { "ApplicationId": (NullOrUndefined Nothing), "Author": (NullOrUndefined Nothing), "CreationTime": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "HomePageUrl": (NullOrUndefined Nothing), "Labels": (NullOrUndefined Nothing), "LicenseUrl": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "ReadmeUrl": (NullOrUndefined Nothing), "SpdxLicenseId": (NullOrUndefined Nothing), "Version": (NullOrUndefined Nothing) }
+newCreateApplicationResponse' :: ( { "ApplicationId" :: Maybe (String) , "Author" :: Maybe (String) , "CreationTime" :: Maybe (String) , "Description" :: Maybe (String) , "HomePageUrl" :: Maybe (String) , "Labels" :: Maybe (ListOf__string') , "LicenseUrl" :: Maybe (String) , "Name" :: Maybe (String) , "ReadmeUrl" :: Maybe (String) , "SpdxLicenseId" :: Maybe (String) , "Version" :: Maybe (Version) } -> {"ApplicationId" :: Maybe (String) , "Author" :: Maybe (String) , "CreationTime" :: Maybe (String) , "Description" :: Maybe (String) , "HomePageUrl" :: Maybe (String) , "Labels" :: Maybe (ListOf__string') , "LicenseUrl" :: Maybe (String) , "Name" :: Maybe (String) , "ReadmeUrl" :: Maybe (String) , "SpdxLicenseId" :: Maybe (String) , "Version" :: Maybe (Version) } ) -> CreateApplicationResponse
+newCreateApplicationResponse'  customize = (CreateApplicationResponse <<< customize) { "ApplicationId": Nothing, "Author": Nothing, "CreationTime": Nothing, "Description": Nothing, "HomePageUrl": Nothing, "Labels": Nothing, "LicenseUrl": Nothing, "Name": Nothing, "ReadmeUrl": Nothing, "SpdxLicenseId": Nothing, "Version": Nothing }
 
 
 
 -- | <p>Create version request.</p>
 newtype CreateApplicationVersionInput = CreateApplicationVersionInput 
-  { "SourceCodeUrl" :: NullOrUndefined (String)
-  , "TemplateBody" :: NullOrUndefined (String)
-  , "TemplateUrl" :: NullOrUndefined (String)
+  { "SourceCodeUrl" :: Maybe (String)
+  , "TemplateBody" :: Maybe (String)
+  , "TemplateUrl" :: Maybe (String)
   }
 derive instance newtypeCreateApplicationVersionInput :: Newtype CreateApplicationVersionInput _
 derive instance repGenericCreateApplicationVersionInput :: Generic CreateApplicationVersionInput _
@@ -344,21 +343,21 @@ instance encodeCreateApplicationVersionInput :: Encode CreateApplicationVersionI
 
 -- | Constructs CreateApplicationVersionInput from required parameters
 newCreateApplicationVersionInput :: CreateApplicationVersionInput
-newCreateApplicationVersionInput  = CreateApplicationVersionInput { "SourceCodeUrl": (NullOrUndefined Nothing), "TemplateBody": (NullOrUndefined Nothing), "TemplateUrl": (NullOrUndefined Nothing) }
+newCreateApplicationVersionInput  = CreateApplicationVersionInput { "SourceCodeUrl": Nothing, "TemplateBody": Nothing, "TemplateUrl": Nothing }
 
 -- | Constructs CreateApplicationVersionInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateApplicationVersionInput' :: ( { "SourceCodeUrl" :: NullOrUndefined (String) , "TemplateBody" :: NullOrUndefined (String) , "TemplateUrl" :: NullOrUndefined (String) } -> {"SourceCodeUrl" :: NullOrUndefined (String) , "TemplateBody" :: NullOrUndefined (String) , "TemplateUrl" :: NullOrUndefined (String) } ) -> CreateApplicationVersionInput
-newCreateApplicationVersionInput'  customize = (CreateApplicationVersionInput <<< customize) { "SourceCodeUrl": (NullOrUndefined Nothing), "TemplateBody": (NullOrUndefined Nothing), "TemplateUrl": (NullOrUndefined Nothing) }
+newCreateApplicationVersionInput' :: ( { "SourceCodeUrl" :: Maybe (String) , "TemplateBody" :: Maybe (String) , "TemplateUrl" :: Maybe (String) } -> {"SourceCodeUrl" :: Maybe (String) , "TemplateBody" :: Maybe (String) , "TemplateUrl" :: Maybe (String) } ) -> CreateApplicationVersionInput
+newCreateApplicationVersionInput'  customize = (CreateApplicationVersionInput <<< customize) { "SourceCodeUrl": Nothing, "TemplateBody": Nothing, "TemplateUrl": Nothing }
 
 
 
 newtype CreateApplicationVersionRequest = CreateApplicationVersionRequest 
   { "ApplicationId" :: (String)
   , "SemanticVersion" :: (String)
-  , "SourceCodeUrl" :: NullOrUndefined (String)
-  , "TemplateBody" :: NullOrUndefined (String)
-  , "TemplateUrl" :: NullOrUndefined (String)
+  , "SourceCodeUrl" :: Maybe (String)
+  , "TemplateBody" :: Maybe (String)
+  , "TemplateUrl" :: Maybe (String)
   }
 derive instance newtypeCreateApplicationVersionRequest :: Newtype CreateApplicationVersionRequest _
 derive instance repGenericCreateApplicationVersionRequest :: Generic CreateApplicationVersionRequest _
@@ -368,22 +367,22 @@ instance encodeCreateApplicationVersionRequest :: Encode CreateApplicationVersio
 
 -- | Constructs CreateApplicationVersionRequest from required parameters
 newCreateApplicationVersionRequest :: String -> String -> CreateApplicationVersionRequest
-newCreateApplicationVersionRequest _ApplicationId _SemanticVersion = CreateApplicationVersionRequest { "ApplicationId": _ApplicationId, "SemanticVersion": _SemanticVersion, "SourceCodeUrl": (NullOrUndefined Nothing), "TemplateBody": (NullOrUndefined Nothing), "TemplateUrl": (NullOrUndefined Nothing) }
+newCreateApplicationVersionRequest _ApplicationId _SemanticVersion = CreateApplicationVersionRequest { "ApplicationId": _ApplicationId, "SemanticVersion": _SemanticVersion, "SourceCodeUrl": Nothing, "TemplateBody": Nothing, "TemplateUrl": Nothing }
 
 -- | Constructs CreateApplicationVersionRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateApplicationVersionRequest' :: String -> String -> ( { "ApplicationId" :: (String) , "SemanticVersion" :: (String) , "SourceCodeUrl" :: NullOrUndefined (String) , "TemplateBody" :: NullOrUndefined (String) , "TemplateUrl" :: NullOrUndefined (String) } -> {"ApplicationId" :: (String) , "SemanticVersion" :: (String) , "SourceCodeUrl" :: NullOrUndefined (String) , "TemplateBody" :: NullOrUndefined (String) , "TemplateUrl" :: NullOrUndefined (String) } ) -> CreateApplicationVersionRequest
-newCreateApplicationVersionRequest' _ApplicationId _SemanticVersion customize = (CreateApplicationVersionRequest <<< customize) { "ApplicationId": _ApplicationId, "SemanticVersion": _SemanticVersion, "SourceCodeUrl": (NullOrUndefined Nothing), "TemplateBody": (NullOrUndefined Nothing), "TemplateUrl": (NullOrUndefined Nothing) }
+newCreateApplicationVersionRequest' :: String -> String -> ( { "ApplicationId" :: (String) , "SemanticVersion" :: (String) , "SourceCodeUrl" :: Maybe (String) , "TemplateBody" :: Maybe (String) , "TemplateUrl" :: Maybe (String) } -> {"ApplicationId" :: (String) , "SemanticVersion" :: (String) , "SourceCodeUrl" :: Maybe (String) , "TemplateBody" :: Maybe (String) , "TemplateUrl" :: Maybe (String) } ) -> CreateApplicationVersionRequest
+newCreateApplicationVersionRequest' _ApplicationId _SemanticVersion customize = (CreateApplicationVersionRequest <<< customize) { "ApplicationId": _ApplicationId, "SemanticVersion": _SemanticVersion, "SourceCodeUrl": Nothing, "TemplateBody": Nothing, "TemplateUrl": Nothing }
 
 
 
 newtype CreateApplicationVersionResponse = CreateApplicationVersionResponse 
-  { "ApplicationId" :: NullOrUndefined (String)
-  , "CreationTime" :: NullOrUndefined (String)
-  , "ParameterDefinitions" :: NullOrUndefined (ListOfParameterDefinition')
-  , "SemanticVersion" :: NullOrUndefined (String)
-  , "SourceCodeUrl" :: NullOrUndefined (String)
-  , "TemplateUrl" :: NullOrUndefined (String)
+  { "ApplicationId" :: Maybe (String)
+  , "CreationTime" :: Maybe (String)
+  , "ParameterDefinitions" :: Maybe (ListOfParameterDefinition')
+  , "SemanticVersion" :: Maybe (String)
+  , "SourceCodeUrl" :: Maybe (String)
+  , "TemplateUrl" :: Maybe (String)
   }
 derive instance newtypeCreateApplicationVersionResponse :: Newtype CreateApplicationVersionResponse _
 derive instance repGenericCreateApplicationVersionResponse :: Generic CreateApplicationVersionResponse _
@@ -393,19 +392,19 @@ instance encodeCreateApplicationVersionResponse :: Encode CreateApplicationVersi
 
 -- | Constructs CreateApplicationVersionResponse from required parameters
 newCreateApplicationVersionResponse :: CreateApplicationVersionResponse
-newCreateApplicationVersionResponse  = CreateApplicationVersionResponse { "ApplicationId": (NullOrUndefined Nothing), "CreationTime": (NullOrUndefined Nothing), "ParameterDefinitions": (NullOrUndefined Nothing), "SemanticVersion": (NullOrUndefined Nothing), "SourceCodeUrl": (NullOrUndefined Nothing), "TemplateUrl": (NullOrUndefined Nothing) }
+newCreateApplicationVersionResponse  = CreateApplicationVersionResponse { "ApplicationId": Nothing, "CreationTime": Nothing, "ParameterDefinitions": Nothing, "SemanticVersion": Nothing, "SourceCodeUrl": Nothing, "TemplateUrl": Nothing }
 
 -- | Constructs CreateApplicationVersionResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateApplicationVersionResponse' :: ( { "ApplicationId" :: NullOrUndefined (String) , "CreationTime" :: NullOrUndefined (String) , "ParameterDefinitions" :: NullOrUndefined (ListOfParameterDefinition') , "SemanticVersion" :: NullOrUndefined (String) , "SourceCodeUrl" :: NullOrUndefined (String) , "TemplateUrl" :: NullOrUndefined (String) } -> {"ApplicationId" :: NullOrUndefined (String) , "CreationTime" :: NullOrUndefined (String) , "ParameterDefinitions" :: NullOrUndefined (ListOfParameterDefinition') , "SemanticVersion" :: NullOrUndefined (String) , "SourceCodeUrl" :: NullOrUndefined (String) , "TemplateUrl" :: NullOrUndefined (String) } ) -> CreateApplicationVersionResponse
-newCreateApplicationVersionResponse'  customize = (CreateApplicationVersionResponse <<< customize) { "ApplicationId": (NullOrUndefined Nothing), "CreationTime": (NullOrUndefined Nothing), "ParameterDefinitions": (NullOrUndefined Nothing), "SemanticVersion": (NullOrUndefined Nothing), "SourceCodeUrl": (NullOrUndefined Nothing), "TemplateUrl": (NullOrUndefined Nothing) }
+newCreateApplicationVersionResponse' :: ( { "ApplicationId" :: Maybe (String) , "CreationTime" :: Maybe (String) , "ParameterDefinitions" :: Maybe (ListOfParameterDefinition') , "SemanticVersion" :: Maybe (String) , "SourceCodeUrl" :: Maybe (String) , "TemplateUrl" :: Maybe (String) } -> {"ApplicationId" :: Maybe (String) , "CreationTime" :: Maybe (String) , "ParameterDefinitions" :: Maybe (ListOfParameterDefinition') , "SemanticVersion" :: Maybe (String) , "SourceCodeUrl" :: Maybe (String) , "TemplateUrl" :: Maybe (String) } ) -> CreateApplicationVersionResponse
+newCreateApplicationVersionResponse'  customize = (CreateApplicationVersionResponse <<< customize) { "ApplicationId": Nothing, "CreationTime": Nothing, "ParameterDefinitions": Nothing, "SemanticVersion": Nothing, "SourceCodeUrl": Nothing, "TemplateUrl": Nothing }
 
 
 
 -- | <p>Create application ChangeSet request.</p>
 newtype CreateCloudFormationChangeSetInput = CreateCloudFormationChangeSetInput 
-  { "ParameterOverrides" :: NullOrUndefined (ListOfParameterValue')
-  , "SemanticVersion" :: NullOrUndefined (String)
+  { "ParameterOverrides" :: Maybe (ListOfParameterValue')
+  , "SemanticVersion" :: Maybe (String)
   , "StackName" :: (String)
   }
 derive instance newtypeCreateCloudFormationChangeSetInput :: Newtype CreateCloudFormationChangeSetInput _
@@ -416,20 +415,20 @@ instance encodeCreateCloudFormationChangeSetInput :: Encode CreateCloudFormation
 
 -- | Constructs CreateCloudFormationChangeSetInput from required parameters
 newCreateCloudFormationChangeSetInput :: String -> CreateCloudFormationChangeSetInput
-newCreateCloudFormationChangeSetInput _StackName = CreateCloudFormationChangeSetInput { "StackName": _StackName, "ParameterOverrides": (NullOrUndefined Nothing), "SemanticVersion": (NullOrUndefined Nothing) }
+newCreateCloudFormationChangeSetInput _StackName = CreateCloudFormationChangeSetInput { "StackName": _StackName, "ParameterOverrides": Nothing, "SemanticVersion": Nothing }
 
 -- | Constructs CreateCloudFormationChangeSetInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateCloudFormationChangeSetInput' :: String -> ( { "ParameterOverrides" :: NullOrUndefined (ListOfParameterValue') , "SemanticVersion" :: NullOrUndefined (String) , "StackName" :: (String) } -> {"ParameterOverrides" :: NullOrUndefined (ListOfParameterValue') , "SemanticVersion" :: NullOrUndefined (String) , "StackName" :: (String) } ) -> CreateCloudFormationChangeSetInput
-newCreateCloudFormationChangeSetInput' _StackName customize = (CreateCloudFormationChangeSetInput <<< customize) { "StackName": _StackName, "ParameterOverrides": (NullOrUndefined Nothing), "SemanticVersion": (NullOrUndefined Nothing) }
+newCreateCloudFormationChangeSetInput' :: String -> ( { "ParameterOverrides" :: Maybe (ListOfParameterValue') , "SemanticVersion" :: Maybe (String) , "StackName" :: (String) } -> {"ParameterOverrides" :: Maybe (ListOfParameterValue') , "SemanticVersion" :: Maybe (String) , "StackName" :: (String) } ) -> CreateCloudFormationChangeSetInput
+newCreateCloudFormationChangeSetInput' _StackName customize = (CreateCloudFormationChangeSetInput <<< customize) { "StackName": _StackName, "ParameterOverrides": Nothing, "SemanticVersion": Nothing }
 
 
 
 newtype CreateCloudFormationChangeSetRequest = CreateCloudFormationChangeSetRequest 
   { "ApplicationId" :: (String)
-  , "ParameterOverrides" :: NullOrUndefined (ListOfParameterValue')
-  , "SemanticVersion" :: NullOrUndefined (String)
-  , "StackName" :: NullOrUndefined (String)
+  , "ParameterOverrides" :: Maybe (ListOfParameterValue')
+  , "SemanticVersion" :: Maybe (String)
+  , "StackName" :: Maybe (String)
   }
 derive instance newtypeCreateCloudFormationChangeSetRequest :: Newtype CreateCloudFormationChangeSetRequest _
 derive instance repGenericCreateCloudFormationChangeSetRequest :: Generic CreateCloudFormationChangeSetRequest _
@@ -439,20 +438,20 @@ instance encodeCreateCloudFormationChangeSetRequest :: Encode CreateCloudFormati
 
 -- | Constructs CreateCloudFormationChangeSetRequest from required parameters
 newCreateCloudFormationChangeSetRequest :: String -> CreateCloudFormationChangeSetRequest
-newCreateCloudFormationChangeSetRequest _ApplicationId = CreateCloudFormationChangeSetRequest { "ApplicationId": _ApplicationId, "ParameterOverrides": (NullOrUndefined Nothing), "SemanticVersion": (NullOrUndefined Nothing), "StackName": (NullOrUndefined Nothing) }
+newCreateCloudFormationChangeSetRequest _ApplicationId = CreateCloudFormationChangeSetRequest { "ApplicationId": _ApplicationId, "ParameterOverrides": Nothing, "SemanticVersion": Nothing, "StackName": Nothing }
 
 -- | Constructs CreateCloudFormationChangeSetRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateCloudFormationChangeSetRequest' :: String -> ( { "ApplicationId" :: (String) , "ParameterOverrides" :: NullOrUndefined (ListOfParameterValue') , "SemanticVersion" :: NullOrUndefined (String) , "StackName" :: NullOrUndefined (String) } -> {"ApplicationId" :: (String) , "ParameterOverrides" :: NullOrUndefined (ListOfParameterValue') , "SemanticVersion" :: NullOrUndefined (String) , "StackName" :: NullOrUndefined (String) } ) -> CreateCloudFormationChangeSetRequest
-newCreateCloudFormationChangeSetRequest' _ApplicationId customize = (CreateCloudFormationChangeSetRequest <<< customize) { "ApplicationId": _ApplicationId, "ParameterOverrides": (NullOrUndefined Nothing), "SemanticVersion": (NullOrUndefined Nothing), "StackName": (NullOrUndefined Nothing) }
+newCreateCloudFormationChangeSetRequest' :: String -> ( { "ApplicationId" :: (String) , "ParameterOverrides" :: Maybe (ListOfParameterValue') , "SemanticVersion" :: Maybe (String) , "StackName" :: Maybe (String) } -> {"ApplicationId" :: (String) , "ParameterOverrides" :: Maybe (ListOfParameterValue') , "SemanticVersion" :: Maybe (String) , "StackName" :: Maybe (String) } ) -> CreateCloudFormationChangeSetRequest
+newCreateCloudFormationChangeSetRequest' _ApplicationId customize = (CreateCloudFormationChangeSetRequest <<< customize) { "ApplicationId": _ApplicationId, "ParameterOverrides": Nothing, "SemanticVersion": Nothing, "StackName": Nothing }
 
 
 
 newtype CreateCloudFormationChangeSetResponse = CreateCloudFormationChangeSetResponse 
-  { "ApplicationId" :: NullOrUndefined (String)
-  , "ChangeSetId" :: NullOrUndefined (String)
-  , "SemanticVersion" :: NullOrUndefined (String)
-  , "StackId" :: NullOrUndefined (String)
+  { "ApplicationId" :: Maybe (String)
+  , "ChangeSetId" :: Maybe (String)
+  , "SemanticVersion" :: Maybe (String)
+  , "StackId" :: Maybe (String)
   }
 derive instance newtypeCreateCloudFormationChangeSetResponse :: Newtype CreateCloudFormationChangeSetResponse _
 derive instance repGenericCreateCloudFormationChangeSetResponse :: Generic CreateCloudFormationChangeSetResponse _
@@ -462,12 +461,12 @@ instance encodeCreateCloudFormationChangeSetResponse :: Encode CreateCloudFormat
 
 -- | Constructs CreateCloudFormationChangeSetResponse from required parameters
 newCreateCloudFormationChangeSetResponse :: CreateCloudFormationChangeSetResponse
-newCreateCloudFormationChangeSetResponse  = CreateCloudFormationChangeSetResponse { "ApplicationId": (NullOrUndefined Nothing), "ChangeSetId": (NullOrUndefined Nothing), "SemanticVersion": (NullOrUndefined Nothing), "StackId": (NullOrUndefined Nothing) }
+newCreateCloudFormationChangeSetResponse  = CreateCloudFormationChangeSetResponse { "ApplicationId": Nothing, "ChangeSetId": Nothing, "SemanticVersion": Nothing, "StackId": Nothing }
 
 -- | Constructs CreateCloudFormationChangeSetResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateCloudFormationChangeSetResponse' :: ( { "ApplicationId" :: NullOrUndefined (String) , "ChangeSetId" :: NullOrUndefined (String) , "SemanticVersion" :: NullOrUndefined (String) , "StackId" :: NullOrUndefined (String) } -> {"ApplicationId" :: NullOrUndefined (String) , "ChangeSetId" :: NullOrUndefined (String) , "SemanticVersion" :: NullOrUndefined (String) , "StackId" :: NullOrUndefined (String) } ) -> CreateCloudFormationChangeSetResponse
-newCreateCloudFormationChangeSetResponse'  customize = (CreateCloudFormationChangeSetResponse <<< customize) { "ApplicationId": (NullOrUndefined Nothing), "ChangeSetId": (NullOrUndefined Nothing), "SemanticVersion": (NullOrUndefined Nothing), "StackId": (NullOrUndefined Nothing) }
+newCreateCloudFormationChangeSetResponse' :: ( { "ApplicationId" :: Maybe (String) , "ChangeSetId" :: Maybe (String) , "SemanticVersion" :: Maybe (String) , "StackId" :: Maybe (String) } -> {"ApplicationId" :: Maybe (String) , "ChangeSetId" :: Maybe (String) , "SemanticVersion" :: Maybe (String) , "StackId" :: Maybe (String) } ) -> CreateCloudFormationChangeSetResponse
+newCreateCloudFormationChangeSetResponse'  customize = (CreateCloudFormationChangeSetResponse <<< customize) { "ApplicationId": Nothing, "ChangeSetId": Nothing, "SemanticVersion": Nothing, "StackId": Nothing }
 
 
 
@@ -493,8 +492,8 @@ newDeleteApplicationRequest' _ApplicationId customize = (DeleteApplicationReques
 
 -- | <p>The client is not authenticated.</p>
 newtype ForbiddenException = ForbiddenException 
-  { "ErrorCode" :: NullOrUndefined (String)
-  , "Message" :: NullOrUndefined (String)
+  { "ErrorCode" :: Maybe (String)
+  , "Message" :: Maybe (String)
   }
 derive instance newtypeForbiddenException :: Newtype ForbiddenException _
 derive instance repGenericForbiddenException :: Generic ForbiddenException _
@@ -504,12 +503,12 @@ instance encodeForbiddenException :: Encode ForbiddenException where encode = ge
 
 -- | Constructs ForbiddenException from required parameters
 newForbiddenException :: ForbiddenException
-newForbiddenException  = ForbiddenException { "ErrorCode": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing) }
+newForbiddenException  = ForbiddenException { "ErrorCode": Nothing, "Message": Nothing }
 
 -- | Constructs ForbiddenException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newForbiddenException' :: ( { "ErrorCode" :: NullOrUndefined (String) , "Message" :: NullOrUndefined (String) } -> {"ErrorCode" :: NullOrUndefined (String) , "Message" :: NullOrUndefined (String) } ) -> ForbiddenException
-newForbiddenException'  customize = (ForbiddenException <<< customize) { "ErrorCode": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing) }
+newForbiddenException' :: ( { "ErrorCode" :: Maybe (String) , "Message" :: Maybe (String) } -> {"ErrorCode" :: Maybe (String) , "Message" :: Maybe (String) } ) -> ForbiddenException
+newForbiddenException'  customize = (ForbiddenException <<< customize) { "ErrorCode": Nothing, "Message": Nothing }
 
 
 
@@ -534,7 +533,7 @@ newGetApplicationPolicyRequest' _ApplicationId customize = (GetApplicationPolicy
 
 
 newtype GetApplicationPolicyResponse = GetApplicationPolicyResponse 
-  { "Statements" :: NullOrUndefined (ListOfApplicationPolicyStatement')
+  { "Statements" :: Maybe (ListOfApplicationPolicyStatement')
   }
 derive instance newtypeGetApplicationPolicyResponse :: Newtype GetApplicationPolicyResponse _
 derive instance repGenericGetApplicationPolicyResponse :: Generic GetApplicationPolicyResponse _
@@ -544,18 +543,18 @@ instance encodeGetApplicationPolicyResponse :: Encode GetApplicationPolicyRespon
 
 -- | Constructs GetApplicationPolicyResponse from required parameters
 newGetApplicationPolicyResponse :: GetApplicationPolicyResponse
-newGetApplicationPolicyResponse  = GetApplicationPolicyResponse { "Statements": (NullOrUndefined Nothing) }
+newGetApplicationPolicyResponse  = GetApplicationPolicyResponse { "Statements": Nothing }
 
 -- | Constructs GetApplicationPolicyResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetApplicationPolicyResponse' :: ( { "Statements" :: NullOrUndefined (ListOfApplicationPolicyStatement') } -> {"Statements" :: NullOrUndefined (ListOfApplicationPolicyStatement') } ) -> GetApplicationPolicyResponse
-newGetApplicationPolicyResponse'  customize = (GetApplicationPolicyResponse <<< customize) { "Statements": (NullOrUndefined Nothing) }
+newGetApplicationPolicyResponse' :: ( { "Statements" :: Maybe (ListOfApplicationPolicyStatement') } -> {"Statements" :: Maybe (ListOfApplicationPolicyStatement') } ) -> GetApplicationPolicyResponse
+newGetApplicationPolicyResponse'  customize = (GetApplicationPolicyResponse <<< customize) { "Statements": Nothing }
 
 
 
 newtype GetApplicationRequest = GetApplicationRequest 
   { "ApplicationId" :: (String)
-  , "SemanticVersion" :: NullOrUndefined (String)
+  , "SemanticVersion" :: Maybe (String)
   }
 derive instance newtypeGetApplicationRequest :: Newtype GetApplicationRequest _
 derive instance repGenericGetApplicationRequest :: Generic GetApplicationRequest _
@@ -565,27 +564,27 @@ instance encodeGetApplicationRequest :: Encode GetApplicationRequest where encod
 
 -- | Constructs GetApplicationRequest from required parameters
 newGetApplicationRequest :: String -> GetApplicationRequest
-newGetApplicationRequest _ApplicationId = GetApplicationRequest { "ApplicationId": _ApplicationId, "SemanticVersion": (NullOrUndefined Nothing) }
+newGetApplicationRequest _ApplicationId = GetApplicationRequest { "ApplicationId": _ApplicationId, "SemanticVersion": Nothing }
 
 -- | Constructs GetApplicationRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetApplicationRequest' :: String -> ( { "ApplicationId" :: (String) , "SemanticVersion" :: NullOrUndefined (String) } -> {"ApplicationId" :: (String) , "SemanticVersion" :: NullOrUndefined (String) } ) -> GetApplicationRequest
-newGetApplicationRequest' _ApplicationId customize = (GetApplicationRequest <<< customize) { "ApplicationId": _ApplicationId, "SemanticVersion": (NullOrUndefined Nothing) }
+newGetApplicationRequest' :: String -> ( { "ApplicationId" :: (String) , "SemanticVersion" :: Maybe (String) } -> {"ApplicationId" :: (String) , "SemanticVersion" :: Maybe (String) } ) -> GetApplicationRequest
+newGetApplicationRequest' _ApplicationId customize = (GetApplicationRequest <<< customize) { "ApplicationId": _ApplicationId, "SemanticVersion": Nothing }
 
 
 
 newtype GetApplicationResponse = GetApplicationResponse 
-  { "ApplicationId" :: NullOrUndefined (String)
-  , "Author" :: NullOrUndefined (String)
-  , "CreationTime" :: NullOrUndefined (String)
-  , "Description" :: NullOrUndefined (String)
-  , "HomePageUrl" :: NullOrUndefined (String)
-  , "Labels" :: NullOrUndefined (ListOf__string')
-  , "LicenseUrl" :: NullOrUndefined (String)
-  , "Name" :: NullOrUndefined (String)
-  , "ReadmeUrl" :: NullOrUndefined (String)
-  , "SpdxLicenseId" :: NullOrUndefined (String)
-  , "Version" :: NullOrUndefined (Version)
+  { "ApplicationId" :: Maybe (String)
+  , "Author" :: Maybe (String)
+  , "CreationTime" :: Maybe (String)
+  , "Description" :: Maybe (String)
+  , "HomePageUrl" :: Maybe (String)
+  , "Labels" :: Maybe (ListOf__string')
+  , "LicenseUrl" :: Maybe (String)
+  , "Name" :: Maybe (String)
+  , "ReadmeUrl" :: Maybe (String)
+  , "SpdxLicenseId" :: Maybe (String)
+  , "Version" :: Maybe (Version)
   }
 derive instance newtypeGetApplicationResponse :: Newtype GetApplicationResponse _
 derive instance repGenericGetApplicationResponse :: Generic GetApplicationResponse _
@@ -595,19 +594,19 @@ instance encodeGetApplicationResponse :: Encode GetApplicationResponse where enc
 
 -- | Constructs GetApplicationResponse from required parameters
 newGetApplicationResponse :: GetApplicationResponse
-newGetApplicationResponse  = GetApplicationResponse { "ApplicationId": (NullOrUndefined Nothing), "Author": (NullOrUndefined Nothing), "CreationTime": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "HomePageUrl": (NullOrUndefined Nothing), "Labels": (NullOrUndefined Nothing), "LicenseUrl": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "ReadmeUrl": (NullOrUndefined Nothing), "SpdxLicenseId": (NullOrUndefined Nothing), "Version": (NullOrUndefined Nothing) }
+newGetApplicationResponse  = GetApplicationResponse { "ApplicationId": Nothing, "Author": Nothing, "CreationTime": Nothing, "Description": Nothing, "HomePageUrl": Nothing, "Labels": Nothing, "LicenseUrl": Nothing, "Name": Nothing, "ReadmeUrl": Nothing, "SpdxLicenseId": Nothing, "Version": Nothing }
 
 -- | Constructs GetApplicationResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetApplicationResponse' :: ( { "ApplicationId" :: NullOrUndefined (String) , "Author" :: NullOrUndefined (String) , "CreationTime" :: NullOrUndefined (String) , "Description" :: NullOrUndefined (String) , "HomePageUrl" :: NullOrUndefined (String) , "Labels" :: NullOrUndefined (ListOf__string') , "LicenseUrl" :: NullOrUndefined (String) , "Name" :: NullOrUndefined (String) , "ReadmeUrl" :: NullOrUndefined (String) , "SpdxLicenseId" :: NullOrUndefined (String) , "Version" :: NullOrUndefined (Version) } -> {"ApplicationId" :: NullOrUndefined (String) , "Author" :: NullOrUndefined (String) , "CreationTime" :: NullOrUndefined (String) , "Description" :: NullOrUndefined (String) , "HomePageUrl" :: NullOrUndefined (String) , "Labels" :: NullOrUndefined (ListOf__string') , "LicenseUrl" :: NullOrUndefined (String) , "Name" :: NullOrUndefined (String) , "ReadmeUrl" :: NullOrUndefined (String) , "SpdxLicenseId" :: NullOrUndefined (String) , "Version" :: NullOrUndefined (Version) } ) -> GetApplicationResponse
-newGetApplicationResponse'  customize = (GetApplicationResponse <<< customize) { "ApplicationId": (NullOrUndefined Nothing), "Author": (NullOrUndefined Nothing), "CreationTime": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "HomePageUrl": (NullOrUndefined Nothing), "Labels": (NullOrUndefined Nothing), "LicenseUrl": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "ReadmeUrl": (NullOrUndefined Nothing), "SpdxLicenseId": (NullOrUndefined Nothing), "Version": (NullOrUndefined Nothing) }
+newGetApplicationResponse' :: ( { "ApplicationId" :: Maybe (String) , "Author" :: Maybe (String) , "CreationTime" :: Maybe (String) , "Description" :: Maybe (String) , "HomePageUrl" :: Maybe (String) , "Labels" :: Maybe (ListOf__string') , "LicenseUrl" :: Maybe (String) , "Name" :: Maybe (String) , "ReadmeUrl" :: Maybe (String) , "SpdxLicenseId" :: Maybe (String) , "Version" :: Maybe (Version) } -> {"ApplicationId" :: Maybe (String) , "Author" :: Maybe (String) , "CreationTime" :: Maybe (String) , "Description" :: Maybe (String) , "HomePageUrl" :: Maybe (String) , "Labels" :: Maybe (ListOf__string') , "LicenseUrl" :: Maybe (String) , "Name" :: Maybe (String) , "ReadmeUrl" :: Maybe (String) , "SpdxLicenseId" :: Maybe (String) , "Version" :: Maybe (Version) } ) -> GetApplicationResponse
+newGetApplicationResponse'  customize = (GetApplicationResponse <<< customize) { "ApplicationId": Nothing, "Author": Nothing, "CreationTime": Nothing, "Description": Nothing, "HomePageUrl": Nothing, "Labels": Nothing, "LicenseUrl": Nothing, "Name": Nothing, "ReadmeUrl": Nothing, "SpdxLicenseId": Nothing, "Version": Nothing }
 
 
 
 -- | <p>The AWS Serverless Application Repository service encountered an internal error.</p>
 newtype InternalServerErrorException = InternalServerErrorException 
-  { "ErrorCode" :: NullOrUndefined (String)
-  , "Message" :: NullOrUndefined (String)
+  { "ErrorCode" :: Maybe (String)
+  , "Message" :: Maybe (String)
   }
 derive instance newtypeInternalServerErrorException :: Newtype InternalServerErrorException _
 derive instance repGenericInternalServerErrorException :: Generic InternalServerErrorException _
@@ -617,19 +616,19 @@ instance encodeInternalServerErrorException :: Encode InternalServerErrorExcepti
 
 -- | Constructs InternalServerErrorException from required parameters
 newInternalServerErrorException :: InternalServerErrorException
-newInternalServerErrorException  = InternalServerErrorException { "ErrorCode": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing) }
+newInternalServerErrorException  = InternalServerErrorException { "ErrorCode": Nothing, "Message": Nothing }
 
 -- | Constructs InternalServerErrorException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInternalServerErrorException' :: ( { "ErrorCode" :: NullOrUndefined (String) , "Message" :: NullOrUndefined (String) } -> {"ErrorCode" :: NullOrUndefined (String) , "Message" :: NullOrUndefined (String) } ) -> InternalServerErrorException
-newInternalServerErrorException'  customize = (InternalServerErrorException <<< customize) { "ErrorCode": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing) }
+newInternalServerErrorException' :: ( { "ErrorCode" :: Maybe (String) , "Message" :: Maybe (String) } -> {"ErrorCode" :: Maybe (String) , "Message" :: Maybe (String) } ) -> InternalServerErrorException
+newInternalServerErrorException'  customize = (InternalServerErrorException <<< customize) { "ErrorCode": Nothing, "Message": Nothing }
 
 
 
 newtype ListApplicationVersionsRequest = ListApplicationVersionsRequest 
   { "ApplicationId" :: (String)
-  , "MaxItems" :: NullOrUndefined (MaxItems)
-  , "NextToken" :: NullOrUndefined (String)
+  , "MaxItems" :: Maybe (MaxItems)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeListApplicationVersionsRequest :: Newtype ListApplicationVersionsRequest _
 derive instance repGenericListApplicationVersionsRequest :: Generic ListApplicationVersionsRequest _
@@ -639,18 +638,18 @@ instance encodeListApplicationVersionsRequest :: Encode ListApplicationVersionsR
 
 -- | Constructs ListApplicationVersionsRequest from required parameters
 newListApplicationVersionsRequest :: String -> ListApplicationVersionsRequest
-newListApplicationVersionsRequest _ApplicationId = ListApplicationVersionsRequest { "ApplicationId": _ApplicationId, "MaxItems": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListApplicationVersionsRequest _ApplicationId = ListApplicationVersionsRequest { "ApplicationId": _ApplicationId, "MaxItems": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListApplicationVersionsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListApplicationVersionsRequest' :: String -> ( { "ApplicationId" :: (String) , "MaxItems" :: NullOrUndefined (MaxItems) , "NextToken" :: NullOrUndefined (String) } -> {"ApplicationId" :: (String) , "MaxItems" :: NullOrUndefined (MaxItems) , "NextToken" :: NullOrUndefined (String) } ) -> ListApplicationVersionsRequest
-newListApplicationVersionsRequest' _ApplicationId customize = (ListApplicationVersionsRequest <<< customize) { "ApplicationId": _ApplicationId, "MaxItems": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListApplicationVersionsRequest' :: String -> ( { "ApplicationId" :: (String) , "MaxItems" :: Maybe (MaxItems) , "NextToken" :: Maybe (String) } -> {"ApplicationId" :: (String) , "MaxItems" :: Maybe (MaxItems) , "NextToken" :: Maybe (String) } ) -> ListApplicationVersionsRequest
+newListApplicationVersionsRequest' _ApplicationId customize = (ListApplicationVersionsRequest <<< customize) { "ApplicationId": _ApplicationId, "MaxItems": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListApplicationVersionsResponse = ListApplicationVersionsResponse 
-  { "NextToken" :: NullOrUndefined (String)
-  , "Versions" :: NullOrUndefined (ListOfVersionSummary')
+  { "NextToken" :: Maybe (String)
+  , "Versions" :: Maybe (ListOfVersionSummary')
   }
 derive instance newtypeListApplicationVersionsResponse :: Newtype ListApplicationVersionsResponse _
 derive instance repGenericListApplicationVersionsResponse :: Generic ListApplicationVersionsResponse _
@@ -660,18 +659,18 @@ instance encodeListApplicationVersionsResponse :: Encode ListApplicationVersions
 
 -- | Constructs ListApplicationVersionsResponse from required parameters
 newListApplicationVersionsResponse :: ListApplicationVersionsResponse
-newListApplicationVersionsResponse  = ListApplicationVersionsResponse { "NextToken": (NullOrUndefined Nothing), "Versions": (NullOrUndefined Nothing) }
+newListApplicationVersionsResponse  = ListApplicationVersionsResponse { "NextToken": Nothing, "Versions": Nothing }
 
 -- | Constructs ListApplicationVersionsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListApplicationVersionsResponse' :: ( { "NextToken" :: NullOrUndefined (String) , "Versions" :: NullOrUndefined (ListOfVersionSummary') } -> {"NextToken" :: NullOrUndefined (String) , "Versions" :: NullOrUndefined (ListOfVersionSummary') } ) -> ListApplicationVersionsResponse
-newListApplicationVersionsResponse'  customize = (ListApplicationVersionsResponse <<< customize) { "NextToken": (NullOrUndefined Nothing), "Versions": (NullOrUndefined Nothing) }
+newListApplicationVersionsResponse' :: ( { "NextToken" :: Maybe (String) , "Versions" :: Maybe (ListOfVersionSummary') } -> {"NextToken" :: Maybe (String) , "Versions" :: Maybe (ListOfVersionSummary') } ) -> ListApplicationVersionsResponse
+newListApplicationVersionsResponse'  customize = (ListApplicationVersionsResponse <<< customize) { "NextToken": Nothing, "Versions": Nothing }
 
 
 
 newtype ListApplicationsRequest = ListApplicationsRequest 
-  { "MaxItems" :: NullOrUndefined (MaxItems)
-  , "NextToken" :: NullOrUndefined (String)
+  { "MaxItems" :: Maybe (MaxItems)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeListApplicationsRequest :: Newtype ListApplicationsRequest _
 derive instance repGenericListApplicationsRequest :: Generic ListApplicationsRequest _
@@ -681,18 +680,18 @@ instance encodeListApplicationsRequest :: Encode ListApplicationsRequest where e
 
 -- | Constructs ListApplicationsRequest from required parameters
 newListApplicationsRequest :: ListApplicationsRequest
-newListApplicationsRequest  = ListApplicationsRequest { "MaxItems": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListApplicationsRequest  = ListApplicationsRequest { "MaxItems": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListApplicationsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListApplicationsRequest' :: ( { "MaxItems" :: NullOrUndefined (MaxItems) , "NextToken" :: NullOrUndefined (String) } -> {"MaxItems" :: NullOrUndefined (MaxItems) , "NextToken" :: NullOrUndefined (String) } ) -> ListApplicationsRequest
-newListApplicationsRequest'  customize = (ListApplicationsRequest <<< customize) { "MaxItems": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListApplicationsRequest' :: ( { "MaxItems" :: Maybe (MaxItems) , "NextToken" :: Maybe (String) } -> {"MaxItems" :: Maybe (MaxItems) , "NextToken" :: Maybe (String) } ) -> ListApplicationsRequest
+newListApplicationsRequest'  customize = (ListApplicationsRequest <<< customize) { "MaxItems": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListApplicationsResponse = ListApplicationsResponse 
-  { "Applications" :: NullOrUndefined (ListOfApplicationSummary')
-  , "NextToken" :: NullOrUndefined (String)
+  { "Applications" :: Maybe (ListOfApplicationSummary')
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeListApplicationsResponse :: Newtype ListApplicationsResponse _
 derive instance repGenericListApplicationsResponse :: Generic ListApplicationsResponse _
@@ -702,12 +701,12 @@ instance encodeListApplicationsResponse :: Encode ListApplicationsResponse where
 
 -- | Constructs ListApplicationsResponse from required parameters
 newListApplicationsResponse :: ListApplicationsResponse
-newListApplicationsResponse  = ListApplicationsResponse { "Applications": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListApplicationsResponse  = ListApplicationsResponse { "Applications": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListApplicationsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListApplicationsResponse' :: ( { "Applications" :: NullOrUndefined (ListOfApplicationSummary') , "NextToken" :: NullOrUndefined (String) } -> {"Applications" :: NullOrUndefined (ListOfApplicationSummary') , "NextToken" :: NullOrUndefined (String) } ) -> ListApplicationsResponse
-newListApplicationsResponse'  customize = (ListApplicationsResponse <<< customize) { "Applications": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListApplicationsResponse' :: ( { "Applications" :: Maybe (ListOfApplicationSummary') , "NextToken" :: Maybe (String) } -> {"Applications" :: Maybe (ListOfApplicationSummary') , "NextToken" :: Maybe (String) } ) -> ListApplicationsResponse
+newListApplicationsResponse'  customize = (ListApplicationsResponse <<< customize) { "Applications": Nothing, "NextToken": Nothing }
 
 
 
@@ -722,8 +721,8 @@ instance encodeMaxItems :: Encode MaxItems where encode = genericEncode options
 
 -- | <p>The resource (for example, an access policy statement) specified in the request does not exist.</p>
 newtype NotFoundException = NotFoundException 
-  { "ErrorCode" :: NullOrUndefined (String)
-  , "Message" :: NullOrUndefined (String)
+  { "ErrorCode" :: Maybe (String)
+  , "Message" :: Maybe (String)
   }
 derive instance newtypeNotFoundException :: Newtype NotFoundException _
 derive instance repGenericNotFoundException :: Generic NotFoundException _
@@ -733,30 +732,30 @@ instance encodeNotFoundException :: Encode NotFoundException where encode = gene
 
 -- | Constructs NotFoundException from required parameters
 newNotFoundException :: NotFoundException
-newNotFoundException  = NotFoundException { "ErrorCode": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing) }
+newNotFoundException  = NotFoundException { "ErrorCode": Nothing, "Message": Nothing }
 
 -- | Constructs NotFoundException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNotFoundException' :: ( { "ErrorCode" :: NullOrUndefined (String) , "Message" :: NullOrUndefined (String) } -> {"ErrorCode" :: NullOrUndefined (String) , "Message" :: NullOrUndefined (String) } ) -> NotFoundException
-newNotFoundException'  customize = (NotFoundException <<< customize) { "ErrorCode": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing) }
+newNotFoundException' :: ( { "ErrorCode" :: Maybe (String) , "Message" :: Maybe (String) } -> {"ErrorCode" :: Maybe (String) , "Message" :: Maybe (String) } ) -> NotFoundException
+newNotFoundException'  customize = (NotFoundException <<< customize) { "ErrorCode": Nothing, "Message": Nothing }
 
 
 
 -- | <p>Parameters supported by the application.</p>
 newtype ParameterDefinition = ParameterDefinition 
-  { "AllowedPattern" :: NullOrUndefined (String)
-  , "AllowedValues" :: NullOrUndefined (ListOf__string')
-  , "ConstraintDescription" :: NullOrUndefined (String)
-  , "DefaultValue" :: NullOrUndefined (String)
-  , "Description" :: NullOrUndefined (String)
-  , "MaxLength" :: NullOrUndefined (Int)
-  , "MaxValue" :: NullOrUndefined (Int)
-  , "MinLength" :: NullOrUndefined (Int)
-  , "MinValue" :: NullOrUndefined (Int)
+  { "AllowedPattern" :: Maybe (String)
+  , "AllowedValues" :: Maybe (ListOf__string')
+  , "ConstraintDescription" :: Maybe (String)
+  , "DefaultValue" :: Maybe (String)
+  , "Description" :: Maybe (String)
+  , "MaxLength" :: Maybe (Int)
+  , "MaxValue" :: Maybe (Int)
+  , "MinLength" :: Maybe (Int)
+  , "MinValue" :: Maybe (Int)
   , "Name" :: (String)
-  , "NoEcho" :: NullOrUndefined (Boolean)
+  , "NoEcho" :: Maybe (Boolean)
   , "ReferencedByResources" :: (ListOf__string')
-  , "Type" :: NullOrUndefined (String)
+  , "Type" :: Maybe (String)
   }
 derive instance newtypeParameterDefinition :: Newtype ParameterDefinition _
 derive instance repGenericParameterDefinition :: Generic ParameterDefinition _
@@ -766,12 +765,12 @@ instance encodeParameterDefinition :: Encode ParameterDefinition where encode = 
 
 -- | Constructs ParameterDefinition from required parameters
 newParameterDefinition :: String -> ListOf__string' -> ParameterDefinition
-newParameterDefinition _Name _ReferencedByResources = ParameterDefinition { "Name": _Name, "ReferencedByResources": _ReferencedByResources, "AllowedPattern": (NullOrUndefined Nothing), "AllowedValues": (NullOrUndefined Nothing), "ConstraintDescription": (NullOrUndefined Nothing), "DefaultValue": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "MaxLength": (NullOrUndefined Nothing), "MaxValue": (NullOrUndefined Nothing), "MinLength": (NullOrUndefined Nothing), "MinValue": (NullOrUndefined Nothing), "NoEcho": (NullOrUndefined Nothing), "Type": (NullOrUndefined Nothing) }
+newParameterDefinition _Name _ReferencedByResources = ParameterDefinition { "Name": _Name, "ReferencedByResources": _ReferencedByResources, "AllowedPattern": Nothing, "AllowedValues": Nothing, "ConstraintDescription": Nothing, "DefaultValue": Nothing, "Description": Nothing, "MaxLength": Nothing, "MaxValue": Nothing, "MinLength": Nothing, "MinValue": Nothing, "NoEcho": Nothing, "Type": Nothing }
 
 -- | Constructs ParameterDefinition's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newParameterDefinition' :: String -> ListOf__string' -> ( { "AllowedPattern" :: NullOrUndefined (String) , "AllowedValues" :: NullOrUndefined (ListOf__string') , "ConstraintDescription" :: NullOrUndefined (String) , "DefaultValue" :: NullOrUndefined (String) , "Description" :: NullOrUndefined (String) , "MaxLength" :: NullOrUndefined (Int) , "MaxValue" :: NullOrUndefined (Int) , "MinLength" :: NullOrUndefined (Int) , "MinValue" :: NullOrUndefined (Int) , "Name" :: (String) , "NoEcho" :: NullOrUndefined (Boolean) , "ReferencedByResources" :: (ListOf__string') , "Type" :: NullOrUndefined (String) } -> {"AllowedPattern" :: NullOrUndefined (String) , "AllowedValues" :: NullOrUndefined (ListOf__string') , "ConstraintDescription" :: NullOrUndefined (String) , "DefaultValue" :: NullOrUndefined (String) , "Description" :: NullOrUndefined (String) , "MaxLength" :: NullOrUndefined (Int) , "MaxValue" :: NullOrUndefined (Int) , "MinLength" :: NullOrUndefined (Int) , "MinValue" :: NullOrUndefined (Int) , "Name" :: (String) , "NoEcho" :: NullOrUndefined (Boolean) , "ReferencedByResources" :: (ListOf__string') , "Type" :: NullOrUndefined (String) } ) -> ParameterDefinition
-newParameterDefinition' _Name _ReferencedByResources customize = (ParameterDefinition <<< customize) { "Name": _Name, "ReferencedByResources": _ReferencedByResources, "AllowedPattern": (NullOrUndefined Nothing), "AllowedValues": (NullOrUndefined Nothing), "ConstraintDescription": (NullOrUndefined Nothing), "DefaultValue": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "MaxLength": (NullOrUndefined Nothing), "MaxValue": (NullOrUndefined Nothing), "MinLength": (NullOrUndefined Nothing), "MinValue": (NullOrUndefined Nothing), "NoEcho": (NullOrUndefined Nothing), "Type": (NullOrUndefined Nothing) }
+newParameterDefinition' :: String -> ListOf__string' -> ( { "AllowedPattern" :: Maybe (String) , "AllowedValues" :: Maybe (ListOf__string') , "ConstraintDescription" :: Maybe (String) , "DefaultValue" :: Maybe (String) , "Description" :: Maybe (String) , "MaxLength" :: Maybe (Int) , "MaxValue" :: Maybe (Int) , "MinLength" :: Maybe (Int) , "MinValue" :: Maybe (Int) , "Name" :: (String) , "NoEcho" :: Maybe (Boolean) , "ReferencedByResources" :: (ListOf__string') , "Type" :: Maybe (String) } -> {"AllowedPattern" :: Maybe (String) , "AllowedValues" :: Maybe (ListOf__string') , "ConstraintDescription" :: Maybe (String) , "DefaultValue" :: Maybe (String) , "Description" :: Maybe (String) , "MaxLength" :: Maybe (Int) , "MaxValue" :: Maybe (Int) , "MinLength" :: Maybe (Int) , "MinValue" :: Maybe (Int) , "Name" :: (String) , "NoEcho" :: Maybe (Boolean) , "ReferencedByResources" :: (ListOf__string') , "Type" :: Maybe (String) } ) -> ParameterDefinition
+newParameterDefinition' _Name _ReferencedByResources customize = (ParameterDefinition <<< customize) { "Name": _Name, "ReferencedByResources": _ReferencedByResources, "AllowedPattern": Nothing, "AllowedValues": Nothing, "ConstraintDescription": Nothing, "DefaultValue": Nothing, "Description": Nothing, "MaxLength": Nothing, "MaxValue": Nothing, "MinLength": Nothing, "MinValue": Nothing, "NoEcho": Nothing, "Type": Nothing }
 
 
 
@@ -799,7 +798,7 @@ newParameterValue' _Name _Value customize = (ParameterValue <<< customize) { "Na
 
 newtype PutApplicationPolicyRequest = PutApplicationPolicyRequest 
   { "ApplicationId" :: (String)
-  , "Statements" :: NullOrUndefined (ListOfApplicationPolicyStatement')
+  , "Statements" :: Maybe (ListOfApplicationPolicyStatement')
   }
 derive instance newtypePutApplicationPolicyRequest :: Newtype PutApplicationPolicyRequest _
 derive instance repGenericPutApplicationPolicyRequest :: Generic PutApplicationPolicyRequest _
@@ -809,17 +808,17 @@ instance encodePutApplicationPolicyRequest :: Encode PutApplicationPolicyRequest
 
 -- | Constructs PutApplicationPolicyRequest from required parameters
 newPutApplicationPolicyRequest :: String -> PutApplicationPolicyRequest
-newPutApplicationPolicyRequest _ApplicationId = PutApplicationPolicyRequest { "ApplicationId": _ApplicationId, "Statements": (NullOrUndefined Nothing) }
+newPutApplicationPolicyRequest _ApplicationId = PutApplicationPolicyRequest { "ApplicationId": _ApplicationId, "Statements": Nothing }
 
 -- | Constructs PutApplicationPolicyRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutApplicationPolicyRequest' :: String -> ( { "ApplicationId" :: (String) , "Statements" :: NullOrUndefined (ListOfApplicationPolicyStatement') } -> {"ApplicationId" :: (String) , "Statements" :: NullOrUndefined (ListOfApplicationPolicyStatement') } ) -> PutApplicationPolicyRequest
-newPutApplicationPolicyRequest' _ApplicationId customize = (PutApplicationPolicyRequest <<< customize) { "ApplicationId": _ApplicationId, "Statements": (NullOrUndefined Nothing) }
+newPutApplicationPolicyRequest' :: String -> ( { "ApplicationId" :: (String) , "Statements" :: Maybe (ListOfApplicationPolicyStatement') } -> {"ApplicationId" :: (String) , "Statements" :: Maybe (ListOfApplicationPolicyStatement') } ) -> PutApplicationPolicyRequest
+newPutApplicationPolicyRequest' _ApplicationId customize = (PutApplicationPolicyRequest <<< customize) { "ApplicationId": _ApplicationId, "Statements": Nothing }
 
 
 
 newtype PutApplicationPolicyResponse = PutApplicationPolicyResponse 
-  { "Statements" :: NullOrUndefined (ListOfApplicationPolicyStatement')
+  { "Statements" :: Maybe (ListOfApplicationPolicyStatement')
   }
 derive instance newtypePutApplicationPolicyResponse :: Newtype PutApplicationPolicyResponse _
 derive instance repGenericPutApplicationPolicyResponse :: Generic PutApplicationPolicyResponse _
@@ -829,19 +828,19 @@ instance encodePutApplicationPolicyResponse :: Encode PutApplicationPolicyRespon
 
 -- | Constructs PutApplicationPolicyResponse from required parameters
 newPutApplicationPolicyResponse :: PutApplicationPolicyResponse
-newPutApplicationPolicyResponse  = PutApplicationPolicyResponse { "Statements": (NullOrUndefined Nothing) }
+newPutApplicationPolicyResponse  = PutApplicationPolicyResponse { "Statements": Nothing }
 
 -- | Constructs PutApplicationPolicyResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutApplicationPolicyResponse' :: ( { "Statements" :: NullOrUndefined (ListOfApplicationPolicyStatement') } -> {"Statements" :: NullOrUndefined (ListOfApplicationPolicyStatement') } ) -> PutApplicationPolicyResponse
-newPutApplicationPolicyResponse'  customize = (PutApplicationPolicyResponse <<< customize) { "Statements": (NullOrUndefined Nothing) }
+newPutApplicationPolicyResponse' :: ( { "Statements" :: Maybe (ListOfApplicationPolicyStatement') } -> {"Statements" :: Maybe (ListOfApplicationPolicyStatement') } ) -> PutApplicationPolicyResponse
+newPutApplicationPolicyResponse'  customize = (PutApplicationPolicyResponse <<< customize) { "Statements": Nothing }
 
 
 
 -- | <p>The client is sending more than the allowed number of requests per unit time.</p>
 newtype TooManyRequestsException = TooManyRequestsException 
-  { "ErrorCode" :: NullOrUndefined (String)
-  , "Message" :: NullOrUndefined (String)
+  { "ErrorCode" :: Maybe (String)
+  , "Message" :: Maybe (String)
   }
 derive instance newtypeTooManyRequestsException :: Newtype TooManyRequestsException _
 derive instance repGenericTooManyRequestsException :: Generic TooManyRequestsException _
@@ -851,23 +850,23 @@ instance encodeTooManyRequestsException :: Encode TooManyRequestsException where
 
 -- | Constructs TooManyRequestsException from required parameters
 newTooManyRequestsException :: TooManyRequestsException
-newTooManyRequestsException  = TooManyRequestsException { "ErrorCode": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing) }
+newTooManyRequestsException  = TooManyRequestsException { "ErrorCode": Nothing, "Message": Nothing }
 
 -- | Constructs TooManyRequestsException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTooManyRequestsException' :: ( { "ErrorCode" :: NullOrUndefined (String) , "Message" :: NullOrUndefined (String) } -> {"ErrorCode" :: NullOrUndefined (String) , "Message" :: NullOrUndefined (String) } ) -> TooManyRequestsException
-newTooManyRequestsException'  customize = (TooManyRequestsException <<< customize) { "ErrorCode": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing) }
+newTooManyRequestsException' :: ( { "ErrorCode" :: Maybe (String) , "Message" :: Maybe (String) } -> {"ErrorCode" :: Maybe (String) , "Message" :: Maybe (String) } ) -> TooManyRequestsException
+newTooManyRequestsException'  customize = (TooManyRequestsException <<< customize) { "ErrorCode": Nothing, "Message": Nothing }
 
 
 
 -- | <p>Update application request.</p>
 newtype UpdateApplicationInput = UpdateApplicationInput 
-  { "Author" :: NullOrUndefined (String)
-  , "Description" :: NullOrUndefined (String)
-  , "HomePageUrl" :: NullOrUndefined (String)
-  , "Labels" :: NullOrUndefined (ListOf__string')
-  , "ReadmeBody" :: NullOrUndefined (String)
-  , "ReadmeUrl" :: NullOrUndefined (String)
+  { "Author" :: Maybe (String)
+  , "Description" :: Maybe (String)
+  , "HomePageUrl" :: Maybe (String)
+  , "Labels" :: Maybe (ListOf__string')
+  , "ReadmeBody" :: Maybe (String)
+  , "ReadmeUrl" :: Maybe (String)
   }
 derive instance newtypeUpdateApplicationInput :: Newtype UpdateApplicationInput _
 derive instance repGenericUpdateApplicationInput :: Generic UpdateApplicationInput _
@@ -877,23 +876,23 @@ instance encodeUpdateApplicationInput :: Encode UpdateApplicationInput where enc
 
 -- | Constructs UpdateApplicationInput from required parameters
 newUpdateApplicationInput :: UpdateApplicationInput
-newUpdateApplicationInput  = UpdateApplicationInput { "Author": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "HomePageUrl": (NullOrUndefined Nothing), "Labels": (NullOrUndefined Nothing), "ReadmeBody": (NullOrUndefined Nothing), "ReadmeUrl": (NullOrUndefined Nothing) }
+newUpdateApplicationInput  = UpdateApplicationInput { "Author": Nothing, "Description": Nothing, "HomePageUrl": Nothing, "Labels": Nothing, "ReadmeBody": Nothing, "ReadmeUrl": Nothing }
 
 -- | Constructs UpdateApplicationInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateApplicationInput' :: ( { "Author" :: NullOrUndefined (String) , "Description" :: NullOrUndefined (String) , "HomePageUrl" :: NullOrUndefined (String) , "Labels" :: NullOrUndefined (ListOf__string') , "ReadmeBody" :: NullOrUndefined (String) , "ReadmeUrl" :: NullOrUndefined (String) } -> {"Author" :: NullOrUndefined (String) , "Description" :: NullOrUndefined (String) , "HomePageUrl" :: NullOrUndefined (String) , "Labels" :: NullOrUndefined (ListOf__string') , "ReadmeBody" :: NullOrUndefined (String) , "ReadmeUrl" :: NullOrUndefined (String) } ) -> UpdateApplicationInput
-newUpdateApplicationInput'  customize = (UpdateApplicationInput <<< customize) { "Author": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "HomePageUrl": (NullOrUndefined Nothing), "Labels": (NullOrUndefined Nothing), "ReadmeBody": (NullOrUndefined Nothing), "ReadmeUrl": (NullOrUndefined Nothing) }
+newUpdateApplicationInput' :: ( { "Author" :: Maybe (String) , "Description" :: Maybe (String) , "HomePageUrl" :: Maybe (String) , "Labels" :: Maybe (ListOf__string') , "ReadmeBody" :: Maybe (String) , "ReadmeUrl" :: Maybe (String) } -> {"Author" :: Maybe (String) , "Description" :: Maybe (String) , "HomePageUrl" :: Maybe (String) , "Labels" :: Maybe (ListOf__string') , "ReadmeBody" :: Maybe (String) , "ReadmeUrl" :: Maybe (String) } ) -> UpdateApplicationInput
+newUpdateApplicationInput'  customize = (UpdateApplicationInput <<< customize) { "Author": Nothing, "Description": Nothing, "HomePageUrl": Nothing, "Labels": Nothing, "ReadmeBody": Nothing, "ReadmeUrl": Nothing }
 
 
 
 newtype UpdateApplicationRequest = UpdateApplicationRequest 
   { "ApplicationId" :: (String)
-  , "Author" :: NullOrUndefined (String)
-  , "Description" :: NullOrUndefined (String)
-  , "HomePageUrl" :: NullOrUndefined (String)
-  , "Labels" :: NullOrUndefined (ListOf__string')
-  , "ReadmeBody" :: NullOrUndefined (String)
-  , "ReadmeUrl" :: NullOrUndefined (String)
+  , "Author" :: Maybe (String)
+  , "Description" :: Maybe (String)
+  , "HomePageUrl" :: Maybe (String)
+  , "Labels" :: Maybe (ListOf__string')
+  , "ReadmeBody" :: Maybe (String)
+  , "ReadmeUrl" :: Maybe (String)
   }
 derive instance newtypeUpdateApplicationRequest :: Newtype UpdateApplicationRequest _
 derive instance repGenericUpdateApplicationRequest :: Generic UpdateApplicationRequest _
@@ -903,27 +902,27 @@ instance encodeUpdateApplicationRequest :: Encode UpdateApplicationRequest where
 
 -- | Constructs UpdateApplicationRequest from required parameters
 newUpdateApplicationRequest :: String -> UpdateApplicationRequest
-newUpdateApplicationRequest _ApplicationId = UpdateApplicationRequest { "ApplicationId": _ApplicationId, "Author": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "HomePageUrl": (NullOrUndefined Nothing), "Labels": (NullOrUndefined Nothing), "ReadmeBody": (NullOrUndefined Nothing), "ReadmeUrl": (NullOrUndefined Nothing) }
+newUpdateApplicationRequest _ApplicationId = UpdateApplicationRequest { "ApplicationId": _ApplicationId, "Author": Nothing, "Description": Nothing, "HomePageUrl": Nothing, "Labels": Nothing, "ReadmeBody": Nothing, "ReadmeUrl": Nothing }
 
 -- | Constructs UpdateApplicationRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateApplicationRequest' :: String -> ( { "ApplicationId" :: (String) , "Author" :: NullOrUndefined (String) , "Description" :: NullOrUndefined (String) , "HomePageUrl" :: NullOrUndefined (String) , "Labels" :: NullOrUndefined (ListOf__string') , "ReadmeBody" :: NullOrUndefined (String) , "ReadmeUrl" :: NullOrUndefined (String) } -> {"ApplicationId" :: (String) , "Author" :: NullOrUndefined (String) , "Description" :: NullOrUndefined (String) , "HomePageUrl" :: NullOrUndefined (String) , "Labels" :: NullOrUndefined (ListOf__string') , "ReadmeBody" :: NullOrUndefined (String) , "ReadmeUrl" :: NullOrUndefined (String) } ) -> UpdateApplicationRequest
-newUpdateApplicationRequest' _ApplicationId customize = (UpdateApplicationRequest <<< customize) { "ApplicationId": _ApplicationId, "Author": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "HomePageUrl": (NullOrUndefined Nothing), "Labels": (NullOrUndefined Nothing), "ReadmeBody": (NullOrUndefined Nothing), "ReadmeUrl": (NullOrUndefined Nothing) }
+newUpdateApplicationRequest' :: String -> ( { "ApplicationId" :: (String) , "Author" :: Maybe (String) , "Description" :: Maybe (String) , "HomePageUrl" :: Maybe (String) , "Labels" :: Maybe (ListOf__string') , "ReadmeBody" :: Maybe (String) , "ReadmeUrl" :: Maybe (String) } -> {"ApplicationId" :: (String) , "Author" :: Maybe (String) , "Description" :: Maybe (String) , "HomePageUrl" :: Maybe (String) , "Labels" :: Maybe (ListOf__string') , "ReadmeBody" :: Maybe (String) , "ReadmeUrl" :: Maybe (String) } ) -> UpdateApplicationRequest
+newUpdateApplicationRequest' _ApplicationId customize = (UpdateApplicationRequest <<< customize) { "ApplicationId": _ApplicationId, "Author": Nothing, "Description": Nothing, "HomePageUrl": Nothing, "Labels": Nothing, "ReadmeBody": Nothing, "ReadmeUrl": Nothing }
 
 
 
 newtype UpdateApplicationResponse = UpdateApplicationResponse 
-  { "ApplicationId" :: NullOrUndefined (String)
-  , "Author" :: NullOrUndefined (String)
-  , "CreationTime" :: NullOrUndefined (String)
-  , "Description" :: NullOrUndefined (String)
-  , "HomePageUrl" :: NullOrUndefined (String)
-  , "Labels" :: NullOrUndefined (ListOf__string')
-  , "LicenseUrl" :: NullOrUndefined (String)
-  , "Name" :: NullOrUndefined (String)
-  , "ReadmeUrl" :: NullOrUndefined (String)
-  , "SpdxLicenseId" :: NullOrUndefined (String)
-  , "Version" :: NullOrUndefined (Version)
+  { "ApplicationId" :: Maybe (String)
+  , "Author" :: Maybe (String)
+  , "CreationTime" :: Maybe (String)
+  , "Description" :: Maybe (String)
+  , "HomePageUrl" :: Maybe (String)
+  , "Labels" :: Maybe (ListOf__string')
+  , "LicenseUrl" :: Maybe (String)
+  , "Name" :: Maybe (String)
+  , "ReadmeUrl" :: Maybe (String)
+  , "SpdxLicenseId" :: Maybe (String)
+  , "Version" :: Maybe (Version)
   }
 derive instance newtypeUpdateApplicationResponse :: Newtype UpdateApplicationResponse _
 derive instance repGenericUpdateApplicationResponse :: Generic UpdateApplicationResponse _
@@ -933,12 +932,12 @@ instance encodeUpdateApplicationResponse :: Encode UpdateApplicationResponse whe
 
 -- | Constructs UpdateApplicationResponse from required parameters
 newUpdateApplicationResponse :: UpdateApplicationResponse
-newUpdateApplicationResponse  = UpdateApplicationResponse { "ApplicationId": (NullOrUndefined Nothing), "Author": (NullOrUndefined Nothing), "CreationTime": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "HomePageUrl": (NullOrUndefined Nothing), "Labels": (NullOrUndefined Nothing), "LicenseUrl": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "ReadmeUrl": (NullOrUndefined Nothing), "SpdxLicenseId": (NullOrUndefined Nothing), "Version": (NullOrUndefined Nothing) }
+newUpdateApplicationResponse  = UpdateApplicationResponse { "ApplicationId": Nothing, "Author": Nothing, "CreationTime": Nothing, "Description": Nothing, "HomePageUrl": Nothing, "Labels": Nothing, "LicenseUrl": Nothing, "Name": Nothing, "ReadmeUrl": Nothing, "SpdxLicenseId": Nothing, "Version": Nothing }
 
 -- | Constructs UpdateApplicationResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateApplicationResponse' :: ( { "ApplicationId" :: NullOrUndefined (String) , "Author" :: NullOrUndefined (String) , "CreationTime" :: NullOrUndefined (String) , "Description" :: NullOrUndefined (String) , "HomePageUrl" :: NullOrUndefined (String) , "Labels" :: NullOrUndefined (ListOf__string') , "LicenseUrl" :: NullOrUndefined (String) , "Name" :: NullOrUndefined (String) , "ReadmeUrl" :: NullOrUndefined (String) , "SpdxLicenseId" :: NullOrUndefined (String) , "Version" :: NullOrUndefined (Version) } -> {"ApplicationId" :: NullOrUndefined (String) , "Author" :: NullOrUndefined (String) , "CreationTime" :: NullOrUndefined (String) , "Description" :: NullOrUndefined (String) , "HomePageUrl" :: NullOrUndefined (String) , "Labels" :: NullOrUndefined (ListOf__string') , "LicenseUrl" :: NullOrUndefined (String) , "Name" :: NullOrUndefined (String) , "ReadmeUrl" :: NullOrUndefined (String) , "SpdxLicenseId" :: NullOrUndefined (String) , "Version" :: NullOrUndefined (Version) } ) -> UpdateApplicationResponse
-newUpdateApplicationResponse'  customize = (UpdateApplicationResponse <<< customize) { "ApplicationId": (NullOrUndefined Nothing), "Author": (NullOrUndefined Nothing), "CreationTime": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "HomePageUrl": (NullOrUndefined Nothing), "Labels": (NullOrUndefined Nothing), "LicenseUrl": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "ReadmeUrl": (NullOrUndefined Nothing), "SpdxLicenseId": (NullOrUndefined Nothing), "Version": (NullOrUndefined Nothing) }
+newUpdateApplicationResponse' :: ( { "ApplicationId" :: Maybe (String) , "Author" :: Maybe (String) , "CreationTime" :: Maybe (String) , "Description" :: Maybe (String) , "HomePageUrl" :: Maybe (String) , "Labels" :: Maybe (ListOf__string') , "LicenseUrl" :: Maybe (String) , "Name" :: Maybe (String) , "ReadmeUrl" :: Maybe (String) , "SpdxLicenseId" :: Maybe (String) , "Version" :: Maybe (Version) } -> {"ApplicationId" :: Maybe (String) , "Author" :: Maybe (String) , "CreationTime" :: Maybe (String) , "Description" :: Maybe (String) , "HomePageUrl" :: Maybe (String) , "Labels" :: Maybe (ListOf__string') , "LicenseUrl" :: Maybe (String) , "Name" :: Maybe (String) , "ReadmeUrl" :: Maybe (String) , "SpdxLicenseId" :: Maybe (String) , "Version" :: Maybe (Version) } ) -> UpdateApplicationResponse
+newUpdateApplicationResponse'  customize = (UpdateApplicationResponse <<< customize) { "ApplicationId": Nothing, "Author": Nothing, "CreationTime": Nothing, "Description": Nothing, "HomePageUrl": Nothing, "Labels": Nothing, "LicenseUrl": Nothing, "Name": Nothing, "ReadmeUrl": Nothing, "SpdxLicenseId": Nothing, "Version": Nothing }
 
 
 
@@ -948,7 +947,7 @@ newtype Version = Version
   , "CreationTime" :: (String)
   , "ParameterDefinitions" :: (ListOfParameterDefinition')
   , "SemanticVersion" :: (String)
-  , "SourceCodeUrl" :: NullOrUndefined (String)
+  , "SourceCodeUrl" :: Maybe (String)
   , "TemplateUrl" :: (String)
   }
 derive instance newtypeVersion :: Newtype Version _
@@ -959,12 +958,12 @@ instance encodeVersion :: Encode Version where encode = genericEncode options
 
 -- | Constructs Version from required parameters
 newVersion :: String -> String -> ListOfParameterDefinition' -> String -> String -> Version
-newVersion _ApplicationId _CreationTime _ParameterDefinitions _SemanticVersion _TemplateUrl = Version { "ApplicationId": _ApplicationId, "CreationTime": _CreationTime, "ParameterDefinitions": _ParameterDefinitions, "SemanticVersion": _SemanticVersion, "TemplateUrl": _TemplateUrl, "SourceCodeUrl": (NullOrUndefined Nothing) }
+newVersion _ApplicationId _CreationTime _ParameterDefinitions _SemanticVersion _TemplateUrl = Version { "ApplicationId": _ApplicationId, "CreationTime": _CreationTime, "ParameterDefinitions": _ParameterDefinitions, "SemanticVersion": _SemanticVersion, "TemplateUrl": _TemplateUrl, "SourceCodeUrl": Nothing }
 
 -- | Constructs Version's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newVersion' :: String -> String -> ListOfParameterDefinition' -> String -> String -> ( { "ApplicationId" :: (String) , "CreationTime" :: (String) , "ParameterDefinitions" :: (ListOfParameterDefinition') , "SemanticVersion" :: (String) , "SourceCodeUrl" :: NullOrUndefined (String) , "TemplateUrl" :: (String) } -> {"ApplicationId" :: (String) , "CreationTime" :: (String) , "ParameterDefinitions" :: (ListOfParameterDefinition') , "SemanticVersion" :: (String) , "SourceCodeUrl" :: NullOrUndefined (String) , "TemplateUrl" :: (String) } ) -> Version
-newVersion' _ApplicationId _CreationTime _ParameterDefinitions _SemanticVersion _TemplateUrl customize = (Version <<< customize) { "ApplicationId": _ApplicationId, "CreationTime": _CreationTime, "ParameterDefinitions": _ParameterDefinitions, "SemanticVersion": _SemanticVersion, "TemplateUrl": _TemplateUrl, "SourceCodeUrl": (NullOrUndefined Nothing) }
+newVersion' :: String -> String -> ListOfParameterDefinition' -> String -> String -> ( { "ApplicationId" :: (String) , "CreationTime" :: (String) , "ParameterDefinitions" :: (ListOfParameterDefinition') , "SemanticVersion" :: (String) , "SourceCodeUrl" :: Maybe (String) , "TemplateUrl" :: (String) } -> {"ApplicationId" :: (String) , "CreationTime" :: (String) , "ParameterDefinitions" :: (ListOfParameterDefinition') , "SemanticVersion" :: (String) , "SourceCodeUrl" :: Maybe (String) , "TemplateUrl" :: (String) } ) -> Version
+newVersion' _ApplicationId _CreationTime _ParameterDefinitions _SemanticVersion _TemplateUrl customize = (Version <<< customize) { "ApplicationId": _ApplicationId, "CreationTime": _CreationTime, "ParameterDefinitions": _ParameterDefinitions, "SemanticVersion": _SemanticVersion, "TemplateUrl": _TemplateUrl, "SourceCodeUrl": Nothing }
 
 
 
@@ -973,7 +972,7 @@ newtype VersionSummary = VersionSummary
   { "ApplicationId" :: (String)
   , "CreationTime" :: (String)
   , "SemanticVersion" :: (String)
-  , "SourceCodeUrl" :: NullOrUndefined (String)
+  , "SourceCodeUrl" :: Maybe (String)
   }
 derive instance newtypeVersionSummary :: Newtype VersionSummary _
 derive instance repGenericVersionSummary :: Generic VersionSummary _
@@ -983,12 +982,12 @@ instance encodeVersionSummary :: Encode VersionSummary where encode = genericEnc
 
 -- | Constructs VersionSummary from required parameters
 newVersionSummary :: String -> String -> String -> VersionSummary
-newVersionSummary _ApplicationId _CreationTime _SemanticVersion = VersionSummary { "ApplicationId": _ApplicationId, "CreationTime": _CreationTime, "SemanticVersion": _SemanticVersion, "SourceCodeUrl": (NullOrUndefined Nothing) }
+newVersionSummary _ApplicationId _CreationTime _SemanticVersion = VersionSummary { "ApplicationId": _ApplicationId, "CreationTime": _CreationTime, "SemanticVersion": _SemanticVersion, "SourceCodeUrl": Nothing }
 
 -- | Constructs VersionSummary's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newVersionSummary' :: String -> String -> String -> ( { "ApplicationId" :: (String) , "CreationTime" :: (String) , "SemanticVersion" :: (String) , "SourceCodeUrl" :: NullOrUndefined (String) } -> {"ApplicationId" :: (String) , "CreationTime" :: (String) , "SemanticVersion" :: (String) , "SourceCodeUrl" :: NullOrUndefined (String) } ) -> VersionSummary
-newVersionSummary' _ApplicationId _CreationTime _SemanticVersion customize = (VersionSummary <<< customize) { "ApplicationId": _ApplicationId, "CreationTime": _CreationTime, "SemanticVersion": _SemanticVersion, "SourceCodeUrl": (NullOrUndefined Nothing) }
+newVersionSummary' :: String -> String -> String -> ( { "ApplicationId" :: (String) , "CreationTime" :: (String) , "SemanticVersion" :: (String) , "SourceCodeUrl" :: Maybe (String) } -> {"ApplicationId" :: (String) , "CreationTime" :: (String) , "SemanticVersion" :: (String) , "SourceCodeUrl" :: Maybe (String) } ) -> VersionSummary
+newVersionSummary' _ApplicationId _CreationTime _SemanticVersion customize = (VersionSummary <<< customize) { "ApplicationId": _ApplicationId, "CreationTime": _CreationTime, "SemanticVersion": _SemanticVersion, "SourceCodeUrl": Nothing }
 
 
 

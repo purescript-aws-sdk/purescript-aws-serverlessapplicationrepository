@@ -10,7 +10,7 @@ options :: Options
 
 ``` purescript
 newtype Application
-  = Application { "ApplicationId" :: String, "Author" :: String, "CreationTime" :: NullOrUndefined (String), "Description" :: String, "HomePageUrl" :: NullOrUndefined (String), "Labels" :: NullOrUndefined (ListOf__string'), "LicenseUrl" :: NullOrUndefined (String), "Name" :: String, "ReadmeUrl" :: NullOrUndefined (String), "SpdxLicenseId" :: NullOrUndefined (String), "Version" :: NullOrUndefined (Version) }
+  = Application { "ApplicationId" :: String, "Author" :: String, "CreationTime" :: Maybe (String), "Description" :: String, "HomePageUrl" :: Maybe (String), "Labels" :: Maybe (ListOf__string'), "LicenseUrl" :: Maybe (String), "Name" :: String, "ReadmeUrl" :: Maybe (String), "SpdxLicenseId" :: Maybe (String), "Version" :: Maybe (Version) }
 ```
 
 <p>Details about the application.</p>
@@ -35,7 +35,7 @@ Constructs Application from required parameters
 #### `newApplication'`
 
 ``` purescript
-newApplication' :: String -> String -> String -> String -> ({ "ApplicationId" :: String, "Author" :: String, "CreationTime" :: NullOrUndefined (String), "Description" :: String, "HomePageUrl" :: NullOrUndefined (String), "Labels" :: NullOrUndefined (ListOf__string'), "LicenseUrl" :: NullOrUndefined (String), "Name" :: String, "ReadmeUrl" :: NullOrUndefined (String), "SpdxLicenseId" :: NullOrUndefined (String), "Version" :: NullOrUndefined (Version) } -> { "ApplicationId" :: String, "Author" :: String, "CreationTime" :: NullOrUndefined (String), "Description" :: String, "HomePageUrl" :: NullOrUndefined (String), "Labels" :: NullOrUndefined (ListOf__string'), "LicenseUrl" :: NullOrUndefined (String), "Name" :: String, "ReadmeUrl" :: NullOrUndefined (String), "SpdxLicenseId" :: NullOrUndefined (String), "Version" :: NullOrUndefined (Version) }) -> Application
+newApplication' :: String -> String -> String -> String -> ({ "ApplicationId" :: String, "Author" :: String, "CreationTime" :: Maybe (String), "Description" :: String, "HomePageUrl" :: Maybe (String), "Labels" :: Maybe (ListOf__string'), "LicenseUrl" :: Maybe (String), "Name" :: String, "ReadmeUrl" :: Maybe (String), "SpdxLicenseId" :: Maybe (String), "Version" :: Maybe (Version) } -> { "ApplicationId" :: String, "Author" :: String, "CreationTime" :: Maybe (String), "Description" :: String, "HomePageUrl" :: Maybe (String), "Labels" :: Maybe (ListOf__string'), "LicenseUrl" :: Maybe (String), "Name" :: String, "ReadmeUrl" :: Maybe (String), "SpdxLicenseId" :: Maybe (String), "Version" :: Maybe (Version) }) -> Application
 ```
 
 Constructs Application's fields from required parameters
@@ -44,7 +44,7 @@ Constructs Application's fields from required parameters
 
 ``` purescript
 newtype ApplicationPage
-  = ApplicationPage { "Applications" :: ListOfApplicationSummary', "NextToken" :: NullOrUndefined (String) }
+  = ApplicationPage { "Applications" :: ListOfApplicationSummary', "NextToken" :: Maybe (String) }
 ```
 
 <p>List of application details.</p>
@@ -69,7 +69,7 @@ Constructs ApplicationPage from required parameters
 #### `newApplicationPage'`
 
 ``` purescript
-newApplicationPage' :: ListOfApplicationSummary' -> ({ "Applications" :: ListOfApplicationSummary', "NextToken" :: NullOrUndefined (String) } -> { "Applications" :: ListOfApplicationSummary', "NextToken" :: NullOrUndefined (String) }) -> ApplicationPage
+newApplicationPage' :: ListOfApplicationSummary' -> ({ "Applications" :: ListOfApplicationSummary', "NextToken" :: Maybe (String) } -> { "Applications" :: ListOfApplicationSummary', "NextToken" :: Maybe (String) }) -> ApplicationPage
 ```
 
 Constructs ApplicationPage's fields from required parameters
@@ -112,7 +112,7 @@ Constructs ApplicationPolicy's fields from required parameters
 
 ``` purescript
 newtype ApplicationPolicyStatement
-  = ApplicationPolicyStatement { "Actions" :: ListOf__string', "Principals" :: ListOf__string', "StatementId" :: NullOrUndefined (String) }
+  = ApplicationPolicyStatement { "Actions" :: ListOf__string', "Principals" :: ListOf__string', "StatementId" :: Maybe (String) }
 ```
 
 <p>Policy statement applied to the application.</p>
@@ -137,7 +137,7 @@ Constructs ApplicationPolicyStatement from required parameters
 #### `newApplicationPolicyStatement'`
 
 ``` purescript
-newApplicationPolicyStatement' :: ListOf__string' -> ListOf__string' -> ({ "Actions" :: ListOf__string', "Principals" :: ListOf__string', "StatementId" :: NullOrUndefined (String) } -> { "Actions" :: ListOf__string', "Principals" :: ListOf__string', "StatementId" :: NullOrUndefined (String) }) -> ApplicationPolicyStatement
+newApplicationPolicyStatement' :: ListOf__string' -> ListOf__string' -> ({ "Actions" :: ListOf__string', "Principals" :: ListOf__string', "StatementId" :: Maybe (String) } -> { "Actions" :: ListOf__string', "Principals" :: ListOf__string', "StatementId" :: Maybe (String) }) -> ApplicationPolicyStatement
 ```
 
 Constructs ApplicationPolicyStatement's fields from required parameters
@@ -146,7 +146,7 @@ Constructs ApplicationPolicyStatement's fields from required parameters
 
 ``` purescript
 newtype ApplicationSummary
-  = ApplicationSummary { "ApplicationId" :: String, "Author" :: String, "CreationTime" :: NullOrUndefined (String), "Description" :: String, "HomePageUrl" :: NullOrUndefined (String), "Labels" :: NullOrUndefined (ListOf__string'), "Name" :: String, "SpdxLicenseId" :: NullOrUndefined (String) }
+  = ApplicationSummary { "ApplicationId" :: String, "Author" :: String, "CreationTime" :: Maybe (String), "Description" :: String, "HomePageUrl" :: Maybe (String), "Labels" :: Maybe (ListOf__string'), "Name" :: String, "SpdxLicenseId" :: Maybe (String) }
 ```
 
 <p>Summary of details about the application.</p>
@@ -171,7 +171,7 @@ Constructs ApplicationSummary from required parameters
 #### `newApplicationSummary'`
 
 ``` purescript
-newApplicationSummary' :: String -> String -> String -> String -> ({ "ApplicationId" :: String, "Author" :: String, "CreationTime" :: NullOrUndefined (String), "Description" :: String, "HomePageUrl" :: NullOrUndefined (String), "Labels" :: NullOrUndefined (ListOf__string'), "Name" :: String, "SpdxLicenseId" :: NullOrUndefined (String) } -> { "ApplicationId" :: String, "Author" :: String, "CreationTime" :: NullOrUndefined (String), "Description" :: String, "HomePageUrl" :: NullOrUndefined (String), "Labels" :: NullOrUndefined (ListOf__string'), "Name" :: String, "SpdxLicenseId" :: NullOrUndefined (String) }) -> ApplicationSummary
+newApplicationSummary' :: String -> String -> String -> String -> ({ "ApplicationId" :: String, "Author" :: String, "CreationTime" :: Maybe (String), "Description" :: String, "HomePageUrl" :: Maybe (String), "Labels" :: Maybe (ListOf__string'), "Name" :: String, "SpdxLicenseId" :: Maybe (String) } -> { "ApplicationId" :: String, "Author" :: String, "CreationTime" :: Maybe (String), "Description" :: String, "HomePageUrl" :: Maybe (String), "Labels" :: Maybe (ListOf__string'), "Name" :: String, "SpdxLicenseId" :: Maybe (String) }) -> ApplicationSummary
 ```
 
 Constructs ApplicationSummary's fields from required parameters
@@ -180,7 +180,7 @@ Constructs ApplicationSummary's fields from required parameters
 
 ``` purescript
 newtype ApplicationVersionPage
-  = ApplicationVersionPage { "NextToken" :: NullOrUndefined (String), "Versions" :: ListOfVersionSummary' }
+  = ApplicationVersionPage { "NextToken" :: Maybe (String), "Versions" :: ListOfVersionSummary' }
 ```
 
 <p>List of version summaries for the application.</p>
@@ -205,7 +205,7 @@ Constructs ApplicationVersionPage from required parameters
 #### `newApplicationVersionPage'`
 
 ``` purescript
-newApplicationVersionPage' :: ListOfVersionSummary' -> ({ "NextToken" :: NullOrUndefined (String), "Versions" :: ListOfVersionSummary' } -> { "NextToken" :: NullOrUndefined (String), "Versions" :: ListOfVersionSummary' }) -> ApplicationVersionPage
+newApplicationVersionPage' :: ListOfVersionSummary' -> ({ "NextToken" :: Maybe (String), "Versions" :: ListOfVersionSummary' } -> { "NextToken" :: Maybe (String), "Versions" :: ListOfVersionSummary' }) -> ApplicationVersionPage
 ```
 
 Constructs ApplicationVersionPage's fields from required parameters
@@ -214,7 +214,7 @@ Constructs ApplicationVersionPage's fields from required parameters
 
 ``` purescript
 newtype BadRequestException
-  = BadRequestException { "ErrorCode" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String) }
+  = BadRequestException { "ErrorCode" :: Maybe (String), "Message" :: Maybe (String) }
 ```
 
 <p>One of the parameters in the request is invalid.</p>
@@ -239,7 +239,7 @@ Constructs BadRequestException from required parameters
 #### `newBadRequestException'`
 
 ``` purescript
-newBadRequestException' :: ({ "ErrorCode" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String) } -> { "ErrorCode" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String) }) -> BadRequestException
+newBadRequestException' :: ({ "ErrorCode" :: Maybe (String), "Message" :: Maybe (String) } -> { "ErrorCode" :: Maybe (String), "Message" :: Maybe (String) }) -> BadRequestException
 ```
 
 Constructs BadRequestException's fields from required parameters
@@ -282,7 +282,7 @@ Constructs ChangeSetDetails's fields from required parameters
 
 ``` purescript
 newtype ConflictException
-  = ConflictException { "ErrorCode" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String) }
+  = ConflictException { "ErrorCode" :: Maybe (String), "Message" :: Maybe (String) }
 ```
 
 <p>The resource already exists.</p>
@@ -307,7 +307,7 @@ Constructs ConflictException from required parameters
 #### `newConflictException'`
 
 ``` purescript
-newConflictException' :: ({ "ErrorCode" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String) } -> { "ErrorCode" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String) }) -> ConflictException
+newConflictException' :: ({ "ErrorCode" :: Maybe (String), "Message" :: Maybe (String) } -> { "ErrorCode" :: Maybe (String), "Message" :: Maybe (String) }) -> ConflictException
 ```
 
 Constructs ConflictException's fields from required parameters
@@ -316,7 +316,7 @@ Constructs ConflictException's fields from required parameters
 
 ``` purescript
 newtype CreateApplicationInput
-  = CreateApplicationInput { "Author" :: String, "Description" :: String, "HomePageUrl" :: NullOrUndefined (String), "Labels" :: NullOrUndefined (ListOf__string'), "LicenseBody" :: NullOrUndefined (String), "LicenseUrl" :: NullOrUndefined (String), "Name" :: String, "ReadmeBody" :: NullOrUndefined (String), "ReadmeUrl" :: NullOrUndefined (String), "SemanticVersion" :: NullOrUndefined (String), "SourceCodeUrl" :: NullOrUndefined (String), "SpdxLicenseId" :: NullOrUndefined (String), "TemplateBody" :: NullOrUndefined (String), "TemplateUrl" :: NullOrUndefined (String) }
+  = CreateApplicationInput { "Author" :: String, "Description" :: String, "HomePageUrl" :: Maybe (String), "Labels" :: Maybe (ListOf__string'), "LicenseBody" :: Maybe (String), "LicenseUrl" :: Maybe (String), "Name" :: String, "ReadmeBody" :: Maybe (String), "ReadmeUrl" :: Maybe (String), "SemanticVersion" :: Maybe (String), "SourceCodeUrl" :: Maybe (String), "SpdxLicenseId" :: Maybe (String), "TemplateBody" :: Maybe (String), "TemplateUrl" :: Maybe (String) }
 ```
 
 <p>Create application request.</p>
@@ -341,7 +341,7 @@ Constructs CreateApplicationInput from required parameters
 #### `newCreateApplicationInput'`
 
 ``` purescript
-newCreateApplicationInput' :: String -> String -> String -> ({ "Author" :: String, "Description" :: String, "HomePageUrl" :: NullOrUndefined (String), "Labels" :: NullOrUndefined (ListOf__string'), "LicenseBody" :: NullOrUndefined (String), "LicenseUrl" :: NullOrUndefined (String), "Name" :: String, "ReadmeBody" :: NullOrUndefined (String), "ReadmeUrl" :: NullOrUndefined (String), "SemanticVersion" :: NullOrUndefined (String), "SourceCodeUrl" :: NullOrUndefined (String), "SpdxLicenseId" :: NullOrUndefined (String), "TemplateBody" :: NullOrUndefined (String), "TemplateUrl" :: NullOrUndefined (String) } -> { "Author" :: String, "Description" :: String, "HomePageUrl" :: NullOrUndefined (String), "Labels" :: NullOrUndefined (ListOf__string'), "LicenseBody" :: NullOrUndefined (String), "LicenseUrl" :: NullOrUndefined (String), "Name" :: String, "ReadmeBody" :: NullOrUndefined (String), "ReadmeUrl" :: NullOrUndefined (String), "SemanticVersion" :: NullOrUndefined (String), "SourceCodeUrl" :: NullOrUndefined (String), "SpdxLicenseId" :: NullOrUndefined (String), "TemplateBody" :: NullOrUndefined (String), "TemplateUrl" :: NullOrUndefined (String) }) -> CreateApplicationInput
+newCreateApplicationInput' :: String -> String -> String -> ({ "Author" :: String, "Description" :: String, "HomePageUrl" :: Maybe (String), "Labels" :: Maybe (ListOf__string'), "LicenseBody" :: Maybe (String), "LicenseUrl" :: Maybe (String), "Name" :: String, "ReadmeBody" :: Maybe (String), "ReadmeUrl" :: Maybe (String), "SemanticVersion" :: Maybe (String), "SourceCodeUrl" :: Maybe (String), "SpdxLicenseId" :: Maybe (String), "TemplateBody" :: Maybe (String), "TemplateUrl" :: Maybe (String) } -> { "Author" :: String, "Description" :: String, "HomePageUrl" :: Maybe (String), "Labels" :: Maybe (ListOf__string'), "LicenseBody" :: Maybe (String), "LicenseUrl" :: Maybe (String), "Name" :: String, "ReadmeBody" :: Maybe (String), "ReadmeUrl" :: Maybe (String), "SemanticVersion" :: Maybe (String), "SourceCodeUrl" :: Maybe (String), "SpdxLicenseId" :: Maybe (String), "TemplateBody" :: Maybe (String), "TemplateUrl" :: Maybe (String) }) -> CreateApplicationInput
 ```
 
 Constructs CreateApplicationInput's fields from required parameters
@@ -350,7 +350,7 @@ Constructs CreateApplicationInput's fields from required parameters
 
 ``` purescript
 newtype CreateApplicationRequest
-  = CreateApplicationRequest { "Author" :: NullOrUndefined (String), "Description" :: NullOrUndefined (String), "HomePageUrl" :: NullOrUndefined (String), "Labels" :: NullOrUndefined (ListOf__string'), "LicenseBody" :: NullOrUndefined (String), "LicenseUrl" :: NullOrUndefined (String), "Name" :: NullOrUndefined (String), "ReadmeBody" :: NullOrUndefined (String), "ReadmeUrl" :: NullOrUndefined (String), "SemanticVersion" :: NullOrUndefined (String), "SourceCodeUrl" :: NullOrUndefined (String), "SpdxLicenseId" :: NullOrUndefined (String), "TemplateBody" :: NullOrUndefined (String), "TemplateUrl" :: NullOrUndefined (String) }
+  = CreateApplicationRequest { "Author" :: Maybe (String), "Description" :: Maybe (String), "HomePageUrl" :: Maybe (String), "Labels" :: Maybe (ListOf__string'), "LicenseBody" :: Maybe (String), "LicenseUrl" :: Maybe (String), "Name" :: Maybe (String), "ReadmeBody" :: Maybe (String), "ReadmeUrl" :: Maybe (String), "SemanticVersion" :: Maybe (String), "SourceCodeUrl" :: Maybe (String), "SpdxLicenseId" :: Maybe (String), "TemplateBody" :: Maybe (String), "TemplateUrl" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -373,7 +373,7 @@ Constructs CreateApplicationRequest from required parameters
 #### `newCreateApplicationRequest'`
 
 ``` purescript
-newCreateApplicationRequest' :: ({ "Author" :: NullOrUndefined (String), "Description" :: NullOrUndefined (String), "HomePageUrl" :: NullOrUndefined (String), "Labels" :: NullOrUndefined (ListOf__string'), "LicenseBody" :: NullOrUndefined (String), "LicenseUrl" :: NullOrUndefined (String), "Name" :: NullOrUndefined (String), "ReadmeBody" :: NullOrUndefined (String), "ReadmeUrl" :: NullOrUndefined (String), "SemanticVersion" :: NullOrUndefined (String), "SourceCodeUrl" :: NullOrUndefined (String), "SpdxLicenseId" :: NullOrUndefined (String), "TemplateBody" :: NullOrUndefined (String), "TemplateUrl" :: NullOrUndefined (String) } -> { "Author" :: NullOrUndefined (String), "Description" :: NullOrUndefined (String), "HomePageUrl" :: NullOrUndefined (String), "Labels" :: NullOrUndefined (ListOf__string'), "LicenseBody" :: NullOrUndefined (String), "LicenseUrl" :: NullOrUndefined (String), "Name" :: NullOrUndefined (String), "ReadmeBody" :: NullOrUndefined (String), "ReadmeUrl" :: NullOrUndefined (String), "SemanticVersion" :: NullOrUndefined (String), "SourceCodeUrl" :: NullOrUndefined (String), "SpdxLicenseId" :: NullOrUndefined (String), "TemplateBody" :: NullOrUndefined (String), "TemplateUrl" :: NullOrUndefined (String) }) -> CreateApplicationRequest
+newCreateApplicationRequest' :: ({ "Author" :: Maybe (String), "Description" :: Maybe (String), "HomePageUrl" :: Maybe (String), "Labels" :: Maybe (ListOf__string'), "LicenseBody" :: Maybe (String), "LicenseUrl" :: Maybe (String), "Name" :: Maybe (String), "ReadmeBody" :: Maybe (String), "ReadmeUrl" :: Maybe (String), "SemanticVersion" :: Maybe (String), "SourceCodeUrl" :: Maybe (String), "SpdxLicenseId" :: Maybe (String), "TemplateBody" :: Maybe (String), "TemplateUrl" :: Maybe (String) } -> { "Author" :: Maybe (String), "Description" :: Maybe (String), "HomePageUrl" :: Maybe (String), "Labels" :: Maybe (ListOf__string'), "LicenseBody" :: Maybe (String), "LicenseUrl" :: Maybe (String), "Name" :: Maybe (String), "ReadmeBody" :: Maybe (String), "ReadmeUrl" :: Maybe (String), "SemanticVersion" :: Maybe (String), "SourceCodeUrl" :: Maybe (String), "SpdxLicenseId" :: Maybe (String), "TemplateBody" :: Maybe (String), "TemplateUrl" :: Maybe (String) }) -> CreateApplicationRequest
 ```
 
 Constructs CreateApplicationRequest's fields from required parameters
@@ -382,7 +382,7 @@ Constructs CreateApplicationRequest's fields from required parameters
 
 ``` purescript
 newtype CreateApplicationResponse
-  = CreateApplicationResponse { "ApplicationId" :: NullOrUndefined (String), "Author" :: NullOrUndefined (String), "CreationTime" :: NullOrUndefined (String), "Description" :: NullOrUndefined (String), "HomePageUrl" :: NullOrUndefined (String), "Labels" :: NullOrUndefined (ListOf__string'), "LicenseUrl" :: NullOrUndefined (String), "Name" :: NullOrUndefined (String), "ReadmeUrl" :: NullOrUndefined (String), "SpdxLicenseId" :: NullOrUndefined (String), "Version" :: NullOrUndefined (Version) }
+  = CreateApplicationResponse { "ApplicationId" :: Maybe (String), "Author" :: Maybe (String), "CreationTime" :: Maybe (String), "Description" :: Maybe (String), "HomePageUrl" :: Maybe (String), "Labels" :: Maybe (ListOf__string'), "LicenseUrl" :: Maybe (String), "Name" :: Maybe (String), "ReadmeUrl" :: Maybe (String), "SpdxLicenseId" :: Maybe (String), "Version" :: Maybe (Version) }
 ```
 
 ##### Instances
@@ -405,7 +405,7 @@ Constructs CreateApplicationResponse from required parameters
 #### `newCreateApplicationResponse'`
 
 ``` purescript
-newCreateApplicationResponse' :: ({ "ApplicationId" :: NullOrUndefined (String), "Author" :: NullOrUndefined (String), "CreationTime" :: NullOrUndefined (String), "Description" :: NullOrUndefined (String), "HomePageUrl" :: NullOrUndefined (String), "Labels" :: NullOrUndefined (ListOf__string'), "LicenseUrl" :: NullOrUndefined (String), "Name" :: NullOrUndefined (String), "ReadmeUrl" :: NullOrUndefined (String), "SpdxLicenseId" :: NullOrUndefined (String), "Version" :: NullOrUndefined (Version) } -> { "ApplicationId" :: NullOrUndefined (String), "Author" :: NullOrUndefined (String), "CreationTime" :: NullOrUndefined (String), "Description" :: NullOrUndefined (String), "HomePageUrl" :: NullOrUndefined (String), "Labels" :: NullOrUndefined (ListOf__string'), "LicenseUrl" :: NullOrUndefined (String), "Name" :: NullOrUndefined (String), "ReadmeUrl" :: NullOrUndefined (String), "SpdxLicenseId" :: NullOrUndefined (String), "Version" :: NullOrUndefined (Version) }) -> CreateApplicationResponse
+newCreateApplicationResponse' :: ({ "ApplicationId" :: Maybe (String), "Author" :: Maybe (String), "CreationTime" :: Maybe (String), "Description" :: Maybe (String), "HomePageUrl" :: Maybe (String), "Labels" :: Maybe (ListOf__string'), "LicenseUrl" :: Maybe (String), "Name" :: Maybe (String), "ReadmeUrl" :: Maybe (String), "SpdxLicenseId" :: Maybe (String), "Version" :: Maybe (Version) } -> { "ApplicationId" :: Maybe (String), "Author" :: Maybe (String), "CreationTime" :: Maybe (String), "Description" :: Maybe (String), "HomePageUrl" :: Maybe (String), "Labels" :: Maybe (ListOf__string'), "LicenseUrl" :: Maybe (String), "Name" :: Maybe (String), "ReadmeUrl" :: Maybe (String), "SpdxLicenseId" :: Maybe (String), "Version" :: Maybe (Version) }) -> CreateApplicationResponse
 ```
 
 Constructs CreateApplicationResponse's fields from required parameters
@@ -414,7 +414,7 @@ Constructs CreateApplicationResponse's fields from required parameters
 
 ``` purescript
 newtype CreateApplicationVersionInput
-  = CreateApplicationVersionInput { "SourceCodeUrl" :: NullOrUndefined (String), "TemplateBody" :: NullOrUndefined (String), "TemplateUrl" :: NullOrUndefined (String) }
+  = CreateApplicationVersionInput { "SourceCodeUrl" :: Maybe (String), "TemplateBody" :: Maybe (String), "TemplateUrl" :: Maybe (String) }
 ```
 
 <p>Create version request.</p>
@@ -439,7 +439,7 @@ Constructs CreateApplicationVersionInput from required parameters
 #### `newCreateApplicationVersionInput'`
 
 ``` purescript
-newCreateApplicationVersionInput' :: ({ "SourceCodeUrl" :: NullOrUndefined (String), "TemplateBody" :: NullOrUndefined (String), "TemplateUrl" :: NullOrUndefined (String) } -> { "SourceCodeUrl" :: NullOrUndefined (String), "TemplateBody" :: NullOrUndefined (String), "TemplateUrl" :: NullOrUndefined (String) }) -> CreateApplicationVersionInput
+newCreateApplicationVersionInput' :: ({ "SourceCodeUrl" :: Maybe (String), "TemplateBody" :: Maybe (String), "TemplateUrl" :: Maybe (String) } -> { "SourceCodeUrl" :: Maybe (String), "TemplateBody" :: Maybe (String), "TemplateUrl" :: Maybe (String) }) -> CreateApplicationVersionInput
 ```
 
 Constructs CreateApplicationVersionInput's fields from required parameters
@@ -448,7 +448,7 @@ Constructs CreateApplicationVersionInput's fields from required parameters
 
 ``` purescript
 newtype CreateApplicationVersionRequest
-  = CreateApplicationVersionRequest { "ApplicationId" :: String, "SemanticVersion" :: String, "SourceCodeUrl" :: NullOrUndefined (String), "TemplateBody" :: NullOrUndefined (String), "TemplateUrl" :: NullOrUndefined (String) }
+  = CreateApplicationVersionRequest { "ApplicationId" :: String, "SemanticVersion" :: String, "SourceCodeUrl" :: Maybe (String), "TemplateBody" :: Maybe (String), "TemplateUrl" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -471,7 +471,7 @@ Constructs CreateApplicationVersionRequest from required parameters
 #### `newCreateApplicationVersionRequest'`
 
 ``` purescript
-newCreateApplicationVersionRequest' :: String -> String -> ({ "ApplicationId" :: String, "SemanticVersion" :: String, "SourceCodeUrl" :: NullOrUndefined (String), "TemplateBody" :: NullOrUndefined (String), "TemplateUrl" :: NullOrUndefined (String) } -> { "ApplicationId" :: String, "SemanticVersion" :: String, "SourceCodeUrl" :: NullOrUndefined (String), "TemplateBody" :: NullOrUndefined (String), "TemplateUrl" :: NullOrUndefined (String) }) -> CreateApplicationVersionRequest
+newCreateApplicationVersionRequest' :: String -> String -> ({ "ApplicationId" :: String, "SemanticVersion" :: String, "SourceCodeUrl" :: Maybe (String), "TemplateBody" :: Maybe (String), "TemplateUrl" :: Maybe (String) } -> { "ApplicationId" :: String, "SemanticVersion" :: String, "SourceCodeUrl" :: Maybe (String), "TemplateBody" :: Maybe (String), "TemplateUrl" :: Maybe (String) }) -> CreateApplicationVersionRequest
 ```
 
 Constructs CreateApplicationVersionRequest's fields from required parameters
@@ -480,7 +480,7 @@ Constructs CreateApplicationVersionRequest's fields from required parameters
 
 ``` purescript
 newtype CreateApplicationVersionResponse
-  = CreateApplicationVersionResponse { "ApplicationId" :: NullOrUndefined (String), "CreationTime" :: NullOrUndefined (String), "ParameterDefinitions" :: NullOrUndefined (ListOfParameterDefinition'), "SemanticVersion" :: NullOrUndefined (String), "SourceCodeUrl" :: NullOrUndefined (String), "TemplateUrl" :: NullOrUndefined (String) }
+  = CreateApplicationVersionResponse { "ApplicationId" :: Maybe (String), "CreationTime" :: Maybe (String), "ParameterDefinitions" :: Maybe (ListOfParameterDefinition'), "SemanticVersion" :: Maybe (String), "SourceCodeUrl" :: Maybe (String), "TemplateUrl" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -503,7 +503,7 @@ Constructs CreateApplicationVersionResponse from required parameters
 #### `newCreateApplicationVersionResponse'`
 
 ``` purescript
-newCreateApplicationVersionResponse' :: ({ "ApplicationId" :: NullOrUndefined (String), "CreationTime" :: NullOrUndefined (String), "ParameterDefinitions" :: NullOrUndefined (ListOfParameterDefinition'), "SemanticVersion" :: NullOrUndefined (String), "SourceCodeUrl" :: NullOrUndefined (String), "TemplateUrl" :: NullOrUndefined (String) } -> { "ApplicationId" :: NullOrUndefined (String), "CreationTime" :: NullOrUndefined (String), "ParameterDefinitions" :: NullOrUndefined (ListOfParameterDefinition'), "SemanticVersion" :: NullOrUndefined (String), "SourceCodeUrl" :: NullOrUndefined (String), "TemplateUrl" :: NullOrUndefined (String) }) -> CreateApplicationVersionResponse
+newCreateApplicationVersionResponse' :: ({ "ApplicationId" :: Maybe (String), "CreationTime" :: Maybe (String), "ParameterDefinitions" :: Maybe (ListOfParameterDefinition'), "SemanticVersion" :: Maybe (String), "SourceCodeUrl" :: Maybe (String), "TemplateUrl" :: Maybe (String) } -> { "ApplicationId" :: Maybe (String), "CreationTime" :: Maybe (String), "ParameterDefinitions" :: Maybe (ListOfParameterDefinition'), "SemanticVersion" :: Maybe (String), "SourceCodeUrl" :: Maybe (String), "TemplateUrl" :: Maybe (String) }) -> CreateApplicationVersionResponse
 ```
 
 Constructs CreateApplicationVersionResponse's fields from required parameters
@@ -512,7 +512,7 @@ Constructs CreateApplicationVersionResponse's fields from required parameters
 
 ``` purescript
 newtype CreateCloudFormationChangeSetInput
-  = CreateCloudFormationChangeSetInput { "ParameterOverrides" :: NullOrUndefined (ListOfParameterValue'), "SemanticVersion" :: NullOrUndefined (String), "StackName" :: String }
+  = CreateCloudFormationChangeSetInput { "ParameterOverrides" :: Maybe (ListOfParameterValue'), "SemanticVersion" :: Maybe (String), "StackName" :: String }
 ```
 
 <p>Create application ChangeSet request.</p>
@@ -537,7 +537,7 @@ Constructs CreateCloudFormationChangeSetInput from required parameters
 #### `newCreateCloudFormationChangeSetInput'`
 
 ``` purescript
-newCreateCloudFormationChangeSetInput' :: String -> ({ "ParameterOverrides" :: NullOrUndefined (ListOfParameterValue'), "SemanticVersion" :: NullOrUndefined (String), "StackName" :: String } -> { "ParameterOverrides" :: NullOrUndefined (ListOfParameterValue'), "SemanticVersion" :: NullOrUndefined (String), "StackName" :: String }) -> CreateCloudFormationChangeSetInput
+newCreateCloudFormationChangeSetInput' :: String -> ({ "ParameterOverrides" :: Maybe (ListOfParameterValue'), "SemanticVersion" :: Maybe (String), "StackName" :: String } -> { "ParameterOverrides" :: Maybe (ListOfParameterValue'), "SemanticVersion" :: Maybe (String), "StackName" :: String }) -> CreateCloudFormationChangeSetInput
 ```
 
 Constructs CreateCloudFormationChangeSetInput's fields from required parameters
@@ -546,7 +546,7 @@ Constructs CreateCloudFormationChangeSetInput's fields from required parameters
 
 ``` purescript
 newtype CreateCloudFormationChangeSetRequest
-  = CreateCloudFormationChangeSetRequest { "ApplicationId" :: String, "ParameterOverrides" :: NullOrUndefined (ListOfParameterValue'), "SemanticVersion" :: NullOrUndefined (String), "StackName" :: NullOrUndefined (String) }
+  = CreateCloudFormationChangeSetRequest { "ApplicationId" :: String, "ParameterOverrides" :: Maybe (ListOfParameterValue'), "SemanticVersion" :: Maybe (String), "StackName" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -569,7 +569,7 @@ Constructs CreateCloudFormationChangeSetRequest from required parameters
 #### `newCreateCloudFormationChangeSetRequest'`
 
 ``` purescript
-newCreateCloudFormationChangeSetRequest' :: String -> ({ "ApplicationId" :: String, "ParameterOverrides" :: NullOrUndefined (ListOfParameterValue'), "SemanticVersion" :: NullOrUndefined (String), "StackName" :: NullOrUndefined (String) } -> { "ApplicationId" :: String, "ParameterOverrides" :: NullOrUndefined (ListOfParameterValue'), "SemanticVersion" :: NullOrUndefined (String), "StackName" :: NullOrUndefined (String) }) -> CreateCloudFormationChangeSetRequest
+newCreateCloudFormationChangeSetRequest' :: String -> ({ "ApplicationId" :: String, "ParameterOverrides" :: Maybe (ListOfParameterValue'), "SemanticVersion" :: Maybe (String), "StackName" :: Maybe (String) } -> { "ApplicationId" :: String, "ParameterOverrides" :: Maybe (ListOfParameterValue'), "SemanticVersion" :: Maybe (String), "StackName" :: Maybe (String) }) -> CreateCloudFormationChangeSetRequest
 ```
 
 Constructs CreateCloudFormationChangeSetRequest's fields from required parameters
@@ -578,7 +578,7 @@ Constructs CreateCloudFormationChangeSetRequest's fields from required parameter
 
 ``` purescript
 newtype CreateCloudFormationChangeSetResponse
-  = CreateCloudFormationChangeSetResponse { "ApplicationId" :: NullOrUndefined (String), "ChangeSetId" :: NullOrUndefined (String), "SemanticVersion" :: NullOrUndefined (String), "StackId" :: NullOrUndefined (String) }
+  = CreateCloudFormationChangeSetResponse { "ApplicationId" :: Maybe (String), "ChangeSetId" :: Maybe (String), "SemanticVersion" :: Maybe (String), "StackId" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -601,7 +601,7 @@ Constructs CreateCloudFormationChangeSetResponse from required parameters
 #### `newCreateCloudFormationChangeSetResponse'`
 
 ``` purescript
-newCreateCloudFormationChangeSetResponse' :: ({ "ApplicationId" :: NullOrUndefined (String), "ChangeSetId" :: NullOrUndefined (String), "SemanticVersion" :: NullOrUndefined (String), "StackId" :: NullOrUndefined (String) } -> { "ApplicationId" :: NullOrUndefined (String), "ChangeSetId" :: NullOrUndefined (String), "SemanticVersion" :: NullOrUndefined (String), "StackId" :: NullOrUndefined (String) }) -> CreateCloudFormationChangeSetResponse
+newCreateCloudFormationChangeSetResponse' :: ({ "ApplicationId" :: Maybe (String), "ChangeSetId" :: Maybe (String), "SemanticVersion" :: Maybe (String), "StackId" :: Maybe (String) } -> { "ApplicationId" :: Maybe (String), "ChangeSetId" :: Maybe (String), "SemanticVersion" :: Maybe (String), "StackId" :: Maybe (String) }) -> CreateCloudFormationChangeSetResponse
 ```
 
 Constructs CreateCloudFormationChangeSetResponse's fields from required parameters
@@ -642,7 +642,7 @@ Constructs DeleteApplicationRequest's fields from required parameters
 
 ``` purescript
 newtype ForbiddenException
-  = ForbiddenException { "ErrorCode" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String) }
+  = ForbiddenException { "ErrorCode" :: Maybe (String), "Message" :: Maybe (String) }
 ```
 
 <p>The client is not authenticated.</p>
@@ -667,7 +667,7 @@ Constructs ForbiddenException from required parameters
 #### `newForbiddenException'`
 
 ``` purescript
-newForbiddenException' :: ({ "ErrorCode" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String) } -> { "ErrorCode" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String) }) -> ForbiddenException
+newForbiddenException' :: ({ "ErrorCode" :: Maybe (String), "Message" :: Maybe (String) } -> { "ErrorCode" :: Maybe (String), "Message" :: Maybe (String) }) -> ForbiddenException
 ```
 
 Constructs ForbiddenException's fields from required parameters
@@ -708,7 +708,7 @@ Constructs GetApplicationPolicyRequest's fields from required parameters
 
 ``` purescript
 newtype GetApplicationPolicyResponse
-  = GetApplicationPolicyResponse { "Statements" :: NullOrUndefined (ListOfApplicationPolicyStatement') }
+  = GetApplicationPolicyResponse { "Statements" :: Maybe (ListOfApplicationPolicyStatement') }
 ```
 
 ##### Instances
@@ -731,7 +731,7 @@ Constructs GetApplicationPolicyResponse from required parameters
 #### `newGetApplicationPolicyResponse'`
 
 ``` purescript
-newGetApplicationPolicyResponse' :: ({ "Statements" :: NullOrUndefined (ListOfApplicationPolicyStatement') } -> { "Statements" :: NullOrUndefined (ListOfApplicationPolicyStatement') }) -> GetApplicationPolicyResponse
+newGetApplicationPolicyResponse' :: ({ "Statements" :: Maybe (ListOfApplicationPolicyStatement') } -> { "Statements" :: Maybe (ListOfApplicationPolicyStatement') }) -> GetApplicationPolicyResponse
 ```
 
 Constructs GetApplicationPolicyResponse's fields from required parameters
@@ -740,7 +740,7 @@ Constructs GetApplicationPolicyResponse's fields from required parameters
 
 ``` purescript
 newtype GetApplicationRequest
-  = GetApplicationRequest { "ApplicationId" :: String, "SemanticVersion" :: NullOrUndefined (String) }
+  = GetApplicationRequest { "ApplicationId" :: String, "SemanticVersion" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -763,7 +763,7 @@ Constructs GetApplicationRequest from required parameters
 #### `newGetApplicationRequest'`
 
 ``` purescript
-newGetApplicationRequest' :: String -> ({ "ApplicationId" :: String, "SemanticVersion" :: NullOrUndefined (String) } -> { "ApplicationId" :: String, "SemanticVersion" :: NullOrUndefined (String) }) -> GetApplicationRequest
+newGetApplicationRequest' :: String -> ({ "ApplicationId" :: String, "SemanticVersion" :: Maybe (String) } -> { "ApplicationId" :: String, "SemanticVersion" :: Maybe (String) }) -> GetApplicationRequest
 ```
 
 Constructs GetApplicationRequest's fields from required parameters
@@ -772,7 +772,7 @@ Constructs GetApplicationRequest's fields from required parameters
 
 ``` purescript
 newtype GetApplicationResponse
-  = GetApplicationResponse { "ApplicationId" :: NullOrUndefined (String), "Author" :: NullOrUndefined (String), "CreationTime" :: NullOrUndefined (String), "Description" :: NullOrUndefined (String), "HomePageUrl" :: NullOrUndefined (String), "Labels" :: NullOrUndefined (ListOf__string'), "LicenseUrl" :: NullOrUndefined (String), "Name" :: NullOrUndefined (String), "ReadmeUrl" :: NullOrUndefined (String), "SpdxLicenseId" :: NullOrUndefined (String), "Version" :: NullOrUndefined (Version) }
+  = GetApplicationResponse { "ApplicationId" :: Maybe (String), "Author" :: Maybe (String), "CreationTime" :: Maybe (String), "Description" :: Maybe (String), "HomePageUrl" :: Maybe (String), "Labels" :: Maybe (ListOf__string'), "LicenseUrl" :: Maybe (String), "Name" :: Maybe (String), "ReadmeUrl" :: Maybe (String), "SpdxLicenseId" :: Maybe (String), "Version" :: Maybe (Version) }
 ```
 
 ##### Instances
@@ -795,7 +795,7 @@ Constructs GetApplicationResponse from required parameters
 #### `newGetApplicationResponse'`
 
 ``` purescript
-newGetApplicationResponse' :: ({ "ApplicationId" :: NullOrUndefined (String), "Author" :: NullOrUndefined (String), "CreationTime" :: NullOrUndefined (String), "Description" :: NullOrUndefined (String), "HomePageUrl" :: NullOrUndefined (String), "Labels" :: NullOrUndefined (ListOf__string'), "LicenseUrl" :: NullOrUndefined (String), "Name" :: NullOrUndefined (String), "ReadmeUrl" :: NullOrUndefined (String), "SpdxLicenseId" :: NullOrUndefined (String), "Version" :: NullOrUndefined (Version) } -> { "ApplicationId" :: NullOrUndefined (String), "Author" :: NullOrUndefined (String), "CreationTime" :: NullOrUndefined (String), "Description" :: NullOrUndefined (String), "HomePageUrl" :: NullOrUndefined (String), "Labels" :: NullOrUndefined (ListOf__string'), "LicenseUrl" :: NullOrUndefined (String), "Name" :: NullOrUndefined (String), "ReadmeUrl" :: NullOrUndefined (String), "SpdxLicenseId" :: NullOrUndefined (String), "Version" :: NullOrUndefined (Version) }) -> GetApplicationResponse
+newGetApplicationResponse' :: ({ "ApplicationId" :: Maybe (String), "Author" :: Maybe (String), "CreationTime" :: Maybe (String), "Description" :: Maybe (String), "HomePageUrl" :: Maybe (String), "Labels" :: Maybe (ListOf__string'), "LicenseUrl" :: Maybe (String), "Name" :: Maybe (String), "ReadmeUrl" :: Maybe (String), "SpdxLicenseId" :: Maybe (String), "Version" :: Maybe (Version) } -> { "ApplicationId" :: Maybe (String), "Author" :: Maybe (String), "CreationTime" :: Maybe (String), "Description" :: Maybe (String), "HomePageUrl" :: Maybe (String), "Labels" :: Maybe (ListOf__string'), "LicenseUrl" :: Maybe (String), "Name" :: Maybe (String), "ReadmeUrl" :: Maybe (String), "SpdxLicenseId" :: Maybe (String), "Version" :: Maybe (Version) }) -> GetApplicationResponse
 ```
 
 Constructs GetApplicationResponse's fields from required parameters
@@ -804,7 +804,7 @@ Constructs GetApplicationResponse's fields from required parameters
 
 ``` purescript
 newtype InternalServerErrorException
-  = InternalServerErrorException { "ErrorCode" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String) }
+  = InternalServerErrorException { "ErrorCode" :: Maybe (String), "Message" :: Maybe (String) }
 ```
 
 <p>The AWS Serverless Application Repository service encountered an internal error.</p>
@@ -829,7 +829,7 @@ Constructs InternalServerErrorException from required parameters
 #### `newInternalServerErrorException'`
 
 ``` purescript
-newInternalServerErrorException' :: ({ "ErrorCode" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String) } -> { "ErrorCode" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String) }) -> InternalServerErrorException
+newInternalServerErrorException' :: ({ "ErrorCode" :: Maybe (String), "Message" :: Maybe (String) } -> { "ErrorCode" :: Maybe (String), "Message" :: Maybe (String) }) -> InternalServerErrorException
 ```
 
 Constructs InternalServerErrorException's fields from required parameters
@@ -838,7 +838,7 @@ Constructs InternalServerErrorException's fields from required parameters
 
 ``` purescript
 newtype ListApplicationVersionsRequest
-  = ListApplicationVersionsRequest { "ApplicationId" :: String, "MaxItems" :: NullOrUndefined (MaxItems), "NextToken" :: NullOrUndefined (String) }
+  = ListApplicationVersionsRequest { "ApplicationId" :: String, "MaxItems" :: Maybe (MaxItems), "NextToken" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -861,7 +861,7 @@ Constructs ListApplicationVersionsRequest from required parameters
 #### `newListApplicationVersionsRequest'`
 
 ``` purescript
-newListApplicationVersionsRequest' :: String -> ({ "ApplicationId" :: String, "MaxItems" :: NullOrUndefined (MaxItems), "NextToken" :: NullOrUndefined (String) } -> { "ApplicationId" :: String, "MaxItems" :: NullOrUndefined (MaxItems), "NextToken" :: NullOrUndefined (String) }) -> ListApplicationVersionsRequest
+newListApplicationVersionsRequest' :: String -> ({ "ApplicationId" :: String, "MaxItems" :: Maybe (MaxItems), "NextToken" :: Maybe (String) } -> { "ApplicationId" :: String, "MaxItems" :: Maybe (MaxItems), "NextToken" :: Maybe (String) }) -> ListApplicationVersionsRequest
 ```
 
 Constructs ListApplicationVersionsRequest's fields from required parameters
@@ -870,7 +870,7 @@ Constructs ListApplicationVersionsRequest's fields from required parameters
 
 ``` purescript
 newtype ListApplicationVersionsResponse
-  = ListApplicationVersionsResponse { "NextToken" :: NullOrUndefined (String), "Versions" :: NullOrUndefined (ListOfVersionSummary') }
+  = ListApplicationVersionsResponse { "NextToken" :: Maybe (String), "Versions" :: Maybe (ListOfVersionSummary') }
 ```
 
 ##### Instances
@@ -893,7 +893,7 @@ Constructs ListApplicationVersionsResponse from required parameters
 #### `newListApplicationVersionsResponse'`
 
 ``` purescript
-newListApplicationVersionsResponse' :: ({ "NextToken" :: NullOrUndefined (String), "Versions" :: NullOrUndefined (ListOfVersionSummary') } -> { "NextToken" :: NullOrUndefined (String), "Versions" :: NullOrUndefined (ListOfVersionSummary') }) -> ListApplicationVersionsResponse
+newListApplicationVersionsResponse' :: ({ "NextToken" :: Maybe (String), "Versions" :: Maybe (ListOfVersionSummary') } -> { "NextToken" :: Maybe (String), "Versions" :: Maybe (ListOfVersionSummary') }) -> ListApplicationVersionsResponse
 ```
 
 Constructs ListApplicationVersionsResponse's fields from required parameters
@@ -902,7 +902,7 @@ Constructs ListApplicationVersionsResponse's fields from required parameters
 
 ``` purescript
 newtype ListApplicationsRequest
-  = ListApplicationsRequest { "MaxItems" :: NullOrUndefined (MaxItems), "NextToken" :: NullOrUndefined (String) }
+  = ListApplicationsRequest { "MaxItems" :: Maybe (MaxItems), "NextToken" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -925,7 +925,7 @@ Constructs ListApplicationsRequest from required parameters
 #### `newListApplicationsRequest'`
 
 ``` purescript
-newListApplicationsRequest' :: ({ "MaxItems" :: NullOrUndefined (MaxItems), "NextToken" :: NullOrUndefined (String) } -> { "MaxItems" :: NullOrUndefined (MaxItems), "NextToken" :: NullOrUndefined (String) }) -> ListApplicationsRequest
+newListApplicationsRequest' :: ({ "MaxItems" :: Maybe (MaxItems), "NextToken" :: Maybe (String) } -> { "MaxItems" :: Maybe (MaxItems), "NextToken" :: Maybe (String) }) -> ListApplicationsRequest
 ```
 
 Constructs ListApplicationsRequest's fields from required parameters
@@ -934,7 +934,7 @@ Constructs ListApplicationsRequest's fields from required parameters
 
 ``` purescript
 newtype ListApplicationsResponse
-  = ListApplicationsResponse { "Applications" :: NullOrUndefined (ListOfApplicationSummary'), "NextToken" :: NullOrUndefined (String) }
+  = ListApplicationsResponse { "Applications" :: Maybe (ListOfApplicationSummary'), "NextToken" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -957,7 +957,7 @@ Constructs ListApplicationsResponse from required parameters
 #### `newListApplicationsResponse'`
 
 ``` purescript
-newListApplicationsResponse' :: ({ "Applications" :: NullOrUndefined (ListOfApplicationSummary'), "NextToken" :: NullOrUndefined (String) } -> { "Applications" :: NullOrUndefined (ListOfApplicationSummary'), "NextToken" :: NullOrUndefined (String) }) -> ListApplicationsResponse
+newListApplicationsResponse' :: ({ "Applications" :: Maybe (ListOfApplicationSummary'), "NextToken" :: Maybe (String) } -> { "Applications" :: Maybe (ListOfApplicationSummary'), "NextToken" :: Maybe (String) }) -> ListApplicationsResponse
 ```
 
 Constructs ListApplicationsResponse's fields from required parameters
@@ -982,7 +982,7 @@ Encode MaxItems
 
 ``` purescript
 newtype NotFoundException
-  = NotFoundException { "ErrorCode" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String) }
+  = NotFoundException { "ErrorCode" :: Maybe (String), "Message" :: Maybe (String) }
 ```
 
 <p>The resource (for example, an access policy statement) specified in the request does not exist.</p>
@@ -1007,7 +1007,7 @@ Constructs NotFoundException from required parameters
 #### `newNotFoundException'`
 
 ``` purescript
-newNotFoundException' :: ({ "ErrorCode" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String) } -> { "ErrorCode" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String) }) -> NotFoundException
+newNotFoundException' :: ({ "ErrorCode" :: Maybe (String), "Message" :: Maybe (String) } -> { "ErrorCode" :: Maybe (String), "Message" :: Maybe (String) }) -> NotFoundException
 ```
 
 Constructs NotFoundException's fields from required parameters
@@ -1016,7 +1016,7 @@ Constructs NotFoundException's fields from required parameters
 
 ``` purescript
 newtype ParameterDefinition
-  = ParameterDefinition { "AllowedPattern" :: NullOrUndefined (String), "AllowedValues" :: NullOrUndefined (ListOf__string'), "ConstraintDescription" :: NullOrUndefined (String), "DefaultValue" :: NullOrUndefined (String), "Description" :: NullOrUndefined (String), "MaxLength" :: NullOrUndefined (Int), "MaxValue" :: NullOrUndefined (Int), "MinLength" :: NullOrUndefined (Int), "MinValue" :: NullOrUndefined (Int), "Name" :: String, "NoEcho" :: NullOrUndefined (Boolean), "ReferencedByResources" :: ListOf__string', "Type" :: NullOrUndefined (String) }
+  = ParameterDefinition { "AllowedPattern" :: Maybe (String), "AllowedValues" :: Maybe (ListOf__string'), "ConstraintDescription" :: Maybe (String), "DefaultValue" :: Maybe (String), "Description" :: Maybe (String), "MaxLength" :: Maybe (Int), "MaxValue" :: Maybe (Int), "MinLength" :: Maybe (Int), "MinValue" :: Maybe (Int), "Name" :: String, "NoEcho" :: Maybe (Boolean), "ReferencedByResources" :: ListOf__string', "Type" :: Maybe (String) }
 ```
 
 <p>Parameters supported by the application.</p>
@@ -1041,7 +1041,7 @@ Constructs ParameterDefinition from required parameters
 #### `newParameterDefinition'`
 
 ``` purescript
-newParameterDefinition' :: String -> ListOf__string' -> ({ "AllowedPattern" :: NullOrUndefined (String), "AllowedValues" :: NullOrUndefined (ListOf__string'), "ConstraintDescription" :: NullOrUndefined (String), "DefaultValue" :: NullOrUndefined (String), "Description" :: NullOrUndefined (String), "MaxLength" :: NullOrUndefined (Int), "MaxValue" :: NullOrUndefined (Int), "MinLength" :: NullOrUndefined (Int), "MinValue" :: NullOrUndefined (Int), "Name" :: String, "NoEcho" :: NullOrUndefined (Boolean), "ReferencedByResources" :: ListOf__string', "Type" :: NullOrUndefined (String) } -> { "AllowedPattern" :: NullOrUndefined (String), "AllowedValues" :: NullOrUndefined (ListOf__string'), "ConstraintDescription" :: NullOrUndefined (String), "DefaultValue" :: NullOrUndefined (String), "Description" :: NullOrUndefined (String), "MaxLength" :: NullOrUndefined (Int), "MaxValue" :: NullOrUndefined (Int), "MinLength" :: NullOrUndefined (Int), "MinValue" :: NullOrUndefined (Int), "Name" :: String, "NoEcho" :: NullOrUndefined (Boolean), "ReferencedByResources" :: ListOf__string', "Type" :: NullOrUndefined (String) }) -> ParameterDefinition
+newParameterDefinition' :: String -> ListOf__string' -> ({ "AllowedPattern" :: Maybe (String), "AllowedValues" :: Maybe (ListOf__string'), "ConstraintDescription" :: Maybe (String), "DefaultValue" :: Maybe (String), "Description" :: Maybe (String), "MaxLength" :: Maybe (Int), "MaxValue" :: Maybe (Int), "MinLength" :: Maybe (Int), "MinValue" :: Maybe (Int), "Name" :: String, "NoEcho" :: Maybe (Boolean), "ReferencedByResources" :: ListOf__string', "Type" :: Maybe (String) } -> { "AllowedPattern" :: Maybe (String), "AllowedValues" :: Maybe (ListOf__string'), "ConstraintDescription" :: Maybe (String), "DefaultValue" :: Maybe (String), "Description" :: Maybe (String), "MaxLength" :: Maybe (Int), "MaxValue" :: Maybe (Int), "MinLength" :: Maybe (Int), "MinValue" :: Maybe (Int), "Name" :: String, "NoEcho" :: Maybe (Boolean), "ReferencedByResources" :: ListOf__string', "Type" :: Maybe (String) }) -> ParameterDefinition
 ```
 
 Constructs ParameterDefinition's fields from required parameters
@@ -1084,7 +1084,7 @@ Constructs ParameterValue's fields from required parameters
 
 ``` purescript
 newtype PutApplicationPolicyRequest
-  = PutApplicationPolicyRequest { "ApplicationId" :: String, "Statements" :: NullOrUndefined (ListOfApplicationPolicyStatement') }
+  = PutApplicationPolicyRequest { "ApplicationId" :: String, "Statements" :: Maybe (ListOfApplicationPolicyStatement') }
 ```
 
 ##### Instances
@@ -1107,7 +1107,7 @@ Constructs PutApplicationPolicyRequest from required parameters
 #### `newPutApplicationPolicyRequest'`
 
 ``` purescript
-newPutApplicationPolicyRequest' :: String -> ({ "ApplicationId" :: String, "Statements" :: NullOrUndefined (ListOfApplicationPolicyStatement') } -> { "ApplicationId" :: String, "Statements" :: NullOrUndefined (ListOfApplicationPolicyStatement') }) -> PutApplicationPolicyRequest
+newPutApplicationPolicyRequest' :: String -> ({ "ApplicationId" :: String, "Statements" :: Maybe (ListOfApplicationPolicyStatement') } -> { "ApplicationId" :: String, "Statements" :: Maybe (ListOfApplicationPolicyStatement') }) -> PutApplicationPolicyRequest
 ```
 
 Constructs PutApplicationPolicyRequest's fields from required parameters
@@ -1116,7 +1116,7 @@ Constructs PutApplicationPolicyRequest's fields from required parameters
 
 ``` purescript
 newtype PutApplicationPolicyResponse
-  = PutApplicationPolicyResponse { "Statements" :: NullOrUndefined (ListOfApplicationPolicyStatement') }
+  = PutApplicationPolicyResponse { "Statements" :: Maybe (ListOfApplicationPolicyStatement') }
 ```
 
 ##### Instances
@@ -1139,7 +1139,7 @@ Constructs PutApplicationPolicyResponse from required parameters
 #### `newPutApplicationPolicyResponse'`
 
 ``` purescript
-newPutApplicationPolicyResponse' :: ({ "Statements" :: NullOrUndefined (ListOfApplicationPolicyStatement') } -> { "Statements" :: NullOrUndefined (ListOfApplicationPolicyStatement') }) -> PutApplicationPolicyResponse
+newPutApplicationPolicyResponse' :: ({ "Statements" :: Maybe (ListOfApplicationPolicyStatement') } -> { "Statements" :: Maybe (ListOfApplicationPolicyStatement') }) -> PutApplicationPolicyResponse
 ```
 
 Constructs PutApplicationPolicyResponse's fields from required parameters
@@ -1148,7 +1148,7 @@ Constructs PutApplicationPolicyResponse's fields from required parameters
 
 ``` purescript
 newtype TooManyRequestsException
-  = TooManyRequestsException { "ErrorCode" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String) }
+  = TooManyRequestsException { "ErrorCode" :: Maybe (String), "Message" :: Maybe (String) }
 ```
 
 <p>The client is sending more than the allowed number of requests per unit time.</p>
@@ -1173,7 +1173,7 @@ Constructs TooManyRequestsException from required parameters
 #### `newTooManyRequestsException'`
 
 ``` purescript
-newTooManyRequestsException' :: ({ "ErrorCode" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String) } -> { "ErrorCode" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String) }) -> TooManyRequestsException
+newTooManyRequestsException' :: ({ "ErrorCode" :: Maybe (String), "Message" :: Maybe (String) } -> { "ErrorCode" :: Maybe (String), "Message" :: Maybe (String) }) -> TooManyRequestsException
 ```
 
 Constructs TooManyRequestsException's fields from required parameters
@@ -1182,7 +1182,7 @@ Constructs TooManyRequestsException's fields from required parameters
 
 ``` purescript
 newtype UpdateApplicationInput
-  = UpdateApplicationInput { "Author" :: NullOrUndefined (String), "Description" :: NullOrUndefined (String), "HomePageUrl" :: NullOrUndefined (String), "Labels" :: NullOrUndefined (ListOf__string'), "ReadmeBody" :: NullOrUndefined (String), "ReadmeUrl" :: NullOrUndefined (String) }
+  = UpdateApplicationInput { "Author" :: Maybe (String), "Description" :: Maybe (String), "HomePageUrl" :: Maybe (String), "Labels" :: Maybe (ListOf__string'), "ReadmeBody" :: Maybe (String), "ReadmeUrl" :: Maybe (String) }
 ```
 
 <p>Update application request.</p>
@@ -1207,7 +1207,7 @@ Constructs UpdateApplicationInput from required parameters
 #### `newUpdateApplicationInput'`
 
 ``` purescript
-newUpdateApplicationInput' :: ({ "Author" :: NullOrUndefined (String), "Description" :: NullOrUndefined (String), "HomePageUrl" :: NullOrUndefined (String), "Labels" :: NullOrUndefined (ListOf__string'), "ReadmeBody" :: NullOrUndefined (String), "ReadmeUrl" :: NullOrUndefined (String) } -> { "Author" :: NullOrUndefined (String), "Description" :: NullOrUndefined (String), "HomePageUrl" :: NullOrUndefined (String), "Labels" :: NullOrUndefined (ListOf__string'), "ReadmeBody" :: NullOrUndefined (String), "ReadmeUrl" :: NullOrUndefined (String) }) -> UpdateApplicationInput
+newUpdateApplicationInput' :: ({ "Author" :: Maybe (String), "Description" :: Maybe (String), "HomePageUrl" :: Maybe (String), "Labels" :: Maybe (ListOf__string'), "ReadmeBody" :: Maybe (String), "ReadmeUrl" :: Maybe (String) } -> { "Author" :: Maybe (String), "Description" :: Maybe (String), "HomePageUrl" :: Maybe (String), "Labels" :: Maybe (ListOf__string'), "ReadmeBody" :: Maybe (String), "ReadmeUrl" :: Maybe (String) }) -> UpdateApplicationInput
 ```
 
 Constructs UpdateApplicationInput's fields from required parameters
@@ -1216,7 +1216,7 @@ Constructs UpdateApplicationInput's fields from required parameters
 
 ``` purescript
 newtype UpdateApplicationRequest
-  = UpdateApplicationRequest { "ApplicationId" :: String, "Author" :: NullOrUndefined (String), "Description" :: NullOrUndefined (String), "HomePageUrl" :: NullOrUndefined (String), "Labels" :: NullOrUndefined (ListOf__string'), "ReadmeBody" :: NullOrUndefined (String), "ReadmeUrl" :: NullOrUndefined (String) }
+  = UpdateApplicationRequest { "ApplicationId" :: String, "Author" :: Maybe (String), "Description" :: Maybe (String), "HomePageUrl" :: Maybe (String), "Labels" :: Maybe (ListOf__string'), "ReadmeBody" :: Maybe (String), "ReadmeUrl" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -1239,7 +1239,7 @@ Constructs UpdateApplicationRequest from required parameters
 #### `newUpdateApplicationRequest'`
 
 ``` purescript
-newUpdateApplicationRequest' :: String -> ({ "ApplicationId" :: String, "Author" :: NullOrUndefined (String), "Description" :: NullOrUndefined (String), "HomePageUrl" :: NullOrUndefined (String), "Labels" :: NullOrUndefined (ListOf__string'), "ReadmeBody" :: NullOrUndefined (String), "ReadmeUrl" :: NullOrUndefined (String) } -> { "ApplicationId" :: String, "Author" :: NullOrUndefined (String), "Description" :: NullOrUndefined (String), "HomePageUrl" :: NullOrUndefined (String), "Labels" :: NullOrUndefined (ListOf__string'), "ReadmeBody" :: NullOrUndefined (String), "ReadmeUrl" :: NullOrUndefined (String) }) -> UpdateApplicationRequest
+newUpdateApplicationRequest' :: String -> ({ "ApplicationId" :: String, "Author" :: Maybe (String), "Description" :: Maybe (String), "HomePageUrl" :: Maybe (String), "Labels" :: Maybe (ListOf__string'), "ReadmeBody" :: Maybe (String), "ReadmeUrl" :: Maybe (String) } -> { "ApplicationId" :: String, "Author" :: Maybe (String), "Description" :: Maybe (String), "HomePageUrl" :: Maybe (String), "Labels" :: Maybe (ListOf__string'), "ReadmeBody" :: Maybe (String), "ReadmeUrl" :: Maybe (String) }) -> UpdateApplicationRequest
 ```
 
 Constructs UpdateApplicationRequest's fields from required parameters
@@ -1248,7 +1248,7 @@ Constructs UpdateApplicationRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateApplicationResponse
-  = UpdateApplicationResponse { "ApplicationId" :: NullOrUndefined (String), "Author" :: NullOrUndefined (String), "CreationTime" :: NullOrUndefined (String), "Description" :: NullOrUndefined (String), "HomePageUrl" :: NullOrUndefined (String), "Labels" :: NullOrUndefined (ListOf__string'), "LicenseUrl" :: NullOrUndefined (String), "Name" :: NullOrUndefined (String), "ReadmeUrl" :: NullOrUndefined (String), "SpdxLicenseId" :: NullOrUndefined (String), "Version" :: NullOrUndefined (Version) }
+  = UpdateApplicationResponse { "ApplicationId" :: Maybe (String), "Author" :: Maybe (String), "CreationTime" :: Maybe (String), "Description" :: Maybe (String), "HomePageUrl" :: Maybe (String), "Labels" :: Maybe (ListOf__string'), "LicenseUrl" :: Maybe (String), "Name" :: Maybe (String), "ReadmeUrl" :: Maybe (String), "SpdxLicenseId" :: Maybe (String), "Version" :: Maybe (Version) }
 ```
 
 ##### Instances
@@ -1271,7 +1271,7 @@ Constructs UpdateApplicationResponse from required parameters
 #### `newUpdateApplicationResponse'`
 
 ``` purescript
-newUpdateApplicationResponse' :: ({ "ApplicationId" :: NullOrUndefined (String), "Author" :: NullOrUndefined (String), "CreationTime" :: NullOrUndefined (String), "Description" :: NullOrUndefined (String), "HomePageUrl" :: NullOrUndefined (String), "Labels" :: NullOrUndefined (ListOf__string'), "LicenseUrl" :: NullOrUndefined (String), "Name" :: NullOrUndefined (String), "ReadmeUrl" :: NullOrUndefined (String), "SpdxLicenseId" :: NullOrUndefined (String), "Version" :: NullOrUndefined (Version) } -> { "ApplicationId" :: NullOrUndefined (String), "Author" :: NullOrUndefined (String), "CreationTime" :: NullOrUndefined (String), "Description" :: NullOrUndefined (String), "HomePageUrl" :: NullOrUndefined (String), "Labels" :: NullOrUndefined (ListOf__string'), "LicenseUrl" :: NullOrUndefined (String), "Name" :: NullOrUndefined (String), "ReadmeUrl" :: NullOrUndefined (String), "SpdxLicenseId" :: NullOrUndefined (String), "Version" :: NullOrUndefined (Version) }) -> UpdateApplicationResponse
+newUpdateApplicationResponse' :: ({ "ApplicationId" :: Maybe (String), "Author" :: Maybe (String), "CreationTime" :: Maybe (String), "Description" :: Maybe (String), "HomePageUrl" :: Maybe (String), "Labels" :: Maybe (ListOf__string'), "LicenseUrl" :: Maybe (String), "Name" :: Maybe (String), "ReadmeUrl" :: Maybe (String), "SpdxLicenseId" :: Maybe (String), "Version" :: Maybe (Version) } -> { "ApplicationId" :: Maybe (String), "Author" :: Maybe (String), "CreationTime" :: Maybe (String), "Description" :: Maybe (String), "HomePageUrl" :: Maybe (String), "Labels" :: Maybe (ListOf__string'), "LicenseUrl" :: Maybe (String), "Name" :: Maybe (String), "ReadmeUrl" :: Maybe (String), "SpdxLicenseId" :: Maybe (String), "Version" :: Maybe (Version) }) -> UpdateApplicationResponse
 ```
 
 Constructs UpdateApplicationResponse's fields from required parameters
@@ -1280,7 +1280,7 @@ Constructs UpdateApplicationResponse's fields from required parameters
 
 ``` purescript
 newtype Version
-  = Version { "ApplicationId" :: String, "CreationTime" :: String, "ParameterDefinitions" :: ListOfParameterDefinition', "SemanticVersion" :: String, "SourceCodeUrl" :: NullOrUndefined (String), "TemplateUrl" :: String }
+  = Version { "ApplicationId" :: String, "CreationTime" :: String, "ParameterDefinitions" :: ListOfParameterDefinition', "SemanticVersion" :: String, "SourceCodeUrl" :: Maybe (String), "TemplateUrl" :: String }
 ```
 
 <p>Application version details.</p>
@@ -1305,7 +1305,7 @@ Constructs Version from required parameters
 #### `newVersion'`
 
 ``` purescript
-newVersion' :: String -> String -> ListOfParameterDefinition' -> String -> String -> ({ "ApplicationId" :: String, "CreationTime" :: String, "ParameterDefinitions" :: ListOfParameterDefinition', "SemanticVersion" :: String, "SourceCodeUrl" :: NullOrUndefined (String), "TemplateUrl" :: String } -> { "ApplicationId" :: String, "CreationTime" :: String, "ParameterDefinitions" :: ListOfParameterDefinition', "SemanticVersion" :: String, "SourceCodeUrl" :: NullOrUndefined (String), "TemplateUrl" :: String }) -> Version
+newVersion' :: String -> String -> ListOfParameterDefinition' -> String -> String -> ({ "ApplicationId" :: String, "CreationTime" :: String, "ParameterDefinitions" :: ListOfParameterDefinition', "SemanticVersion" :: String, "SourceCodeUrl" :: Maybe (String), "TemplateUrl" :: String } -> { "ApplicationId" :: String, "CreationTime" :: String, "ParameterDefinitions" :: ListOfParameterDefinition', "SemanticVersion" :: String, "SourceCodeUrl" :: Maybe (String), "TemplateUrl" :: String }) -> Version
 ```
 
 Constructs Version's fields from required parameters
@@ -1314,7 +1314,7 @@ Constructs Version's fields from required parameters
 
 ``` purescript
 newtype VersionSummary
-  = VersionSummary { "ApplicationId" :: String, "CreationTime" :: String, "SemanticVersion" :: String, "SourceCodeUrl" :: NullOrUndefined (String) }
+  = VersionSummary { "ApplicationId" :: String, "CreationTime" :: String, "SemanticVersion" :: String, "SourceCodeUrl" :: Maybe (String) }
 ```
 
 <p>Application version summary.</p>
@@ -1339,7 +1339,7 @@ Constructs VersionSummary from required parameters
 #### `newVersionSummary'`
 
 ``` purescript
-newVersionSummary' :: String -> String -> String -> ({ "ApplicationId" :: String, "CreationTime" :: String, "SemanticVersion" :: String, "SourceCodeUrl" :: NullOrUndefined (String) } -> { "ApplicationId" :: String, "CreationTime" :: String, "SemanticVersion" :: String, "SourceCodeUrl" :: NullOrUndefined (String) }) -> VersionSummary
+newVersionSummary' :: String -> String -> String -> ({ "ApplicationId" :: String, "CreationTime" :: String, "SemanticVersion" :: String, "SourceCodeUrl" :: Maybe (String) } -> { "ApplicationId" :: String, "CreationTime" :: String, "SemanticVersion" :: String, "SourceCodeUrl" :: Maybe (String) }) -> VersionSummary
 ```
 
 Constructs VersionSummary's fields from required parameters

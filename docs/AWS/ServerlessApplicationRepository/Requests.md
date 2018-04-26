@@ -27,7 +27,7 @@ createCloudFormationChangeSet :: forall eff. Service -> CreateCloudFormationChan
 #### `deleteApplication`
 
 ``` purescript
-deleteApplication :: forall eff. Service -> DeleteApplicationRequest -> Aff (exception :: EXCEPTION | eff) NoOutput
+deleteApplication :: forall eff. Service -> DeleteApplicationRequest -> Aff (exception :: EXCEPTION | eff) Unit
 ```
 
 <p>Deletes the specified application.</p>
